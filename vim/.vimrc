@@ -38,9 +38,6 @@ set guioptions-=e
 "--- Searching ---"
 set hlsearch
 
-
-
-
 "--- Split Management ---"
 set splitbelow
 set splitright
