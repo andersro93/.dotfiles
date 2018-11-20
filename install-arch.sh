@@ -76,4 +76,5 @@ esac
 echo
 
 
-
+# Finally make the installation
+sudo yay -S $packages
