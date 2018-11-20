@@ -1,7 +1,9 @@
 #!/bin/bash
 
 # Install yay (aur helper)
-sudo pacman -S yay
+git clone https://aur.archlinux.org/yay.git /tmp/yay
+cd /tmp/yay
+makepkg -si
 
 # Minimum packages
 packages="vim zsh powerline tmux neofetch sl toilet rsync irssi"
