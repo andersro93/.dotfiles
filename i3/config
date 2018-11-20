@@ -1,0 +1,363 @@
+####################################################################################################
+# 
+# i3 configuration
+# 
+# Author: Anders Refsdal Olsen (@andersro93)
+# Manual: https://i3wm.org/docs/userguide.html
+# 
+
+####################################################################################################
+# 
+# Basic configuration
+# 
+# This section makes basic configuration to the i3 environment. Sets mod key etc..
+#
+
+# Set which key that will be used as a mod key
+set $mod Mod4
+
+# Font to use, default is: pango:monospace
+font pango:DejaVu Sans Mono 9, Awesome 9
+
+# Launchers
+bindsym $mod+d exec rofi -show run
+bindsym $mod+g exec rofi -show ssh
+
+# Kill current window
+bindsym $mod+Shift+q kill
+
+# Lock the screen
+bindsym $mod+l exec i3lock --image="/home/anders/.config/backgrounds/lockscreen.png" -e -f -c 000000
+
+# Which key to use in combination with the mouse to move windows into position
+floating_modifier $mod
+
+# Start a terminal
+bindsym $mod+Return exec i3-sensible-terminal
+
+# Wallpaper
+exec --no-startup-id feh --bg-scale ~/.config/backgrounds/wallpaper.jpg
+
+# Monitors
+set $monitor_1 DP2-3
+set $monitor_2 DP2-1
+set $monitor_3 DP2-2
+
+# Titlebar visibility
+for_window [class="^.*"] border pixel 1
+
+####################################################################################################
+# 
+# Key binds
+# 
+# In this section, we configure key bindings. How various key bindings launches various
+# programs etc...
+#
+
+# Programs
+bindsym $mod+Shift+w exec google-chrome-beta
+bindsym XF86HomePage exec google-chrome-beta
+bindsym XF86Explorer exec terminator -e ranger
+bindsym XF86Calculator exec terminator -e maxima
+
+# Media keys
+bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +10%; pkill -RTMIN+2 i3blocks"
+bindsym XF86AudioLowerVolume exec "pactl set-sink-volume @DEFAULT_SINK@ -10%; pkill -RTMIN+2 i3blocks"
+bindsym XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle; pkill -RTMIN+2 i3blocks"
+bindsym XF86AudioMicMute exec "amixer set Capture toggle"
+bindsym XF86AudioPlay exec "mpc toggle; pkill -RTMIN+3 i3blocks"
+bindsym XF86AudioNext exec "mpc next ; pkill -RTMIN+3 i3blocks"
+bindsym XF86AudioPrev exec "mpc prev ; pkill -RTMIN+3 i3blocks"
+
+# Brightness keys
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'Brightness up'"
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'Brightness down'"
+
+# Print screen
+bindsym --release Print exec deepin-screenshot -f -n
+bindsym --release Shift+Print exec deepin-screenshot -n
+bindsym --release $mod+Shift+Print exec deepin-screenshot -w -n
+
+# Settings
+bindsym XF86Display exec "arandr"
+bindsym XF86Tools exec "autorandr -c"
+
+####################################################################################################
+# 
+# Workspace focus
+# 
+# This section configures how a workspace is being interacted with. How navigation between
+# windows occurs and how to auto arrange new windows etc..
+#
+
+# Change focus, arrows
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Move focus window, arrows
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Split horizontaly
+bindsym $mod+h split h
+
+# Split vertically
+bindsym $mod+v split v
+
+# Enter fullscreen
+bindsym $mod+f fullscreen toggle
+
+# Change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# Toggle tiling and floating
+bindsym $mod+Shift+space floating toggle
+
+# Change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+bindsym $mod+c focus child
+
+####################################################################################################
+# 
+# Workspace setup
+# 
+# This section configures the various workspaces, what they are called etc.. 
+#
+
+# Customize the name of each workspace
+set $ws1 "1: "
+set $ws2 "2: "
+set $ws3 "3: "
+set $ws4 "4: "
+set $ws5 "5: "
+set $ws6 "6: "
+set $ws7 "7: "
+set $ws8 "8: "
+set $ws9 "9: "
+set $ws10 "10"
+
+# Workspace monitor setup
+workspace $ws1 output $monitor_1
+workspace $ws2 output $monitor_2
+workspace $ws3 output $monitor_3
+workspace $ws4 output $monitor_1
+workspace $ws5 output $monitor_2
+workspace $ws6 output $monitor_3
+workspace $ws7 output $monitor_1
+workspace $ws8 output $monitor_2
+workspace $ws9 output $monitor_3
+workspace $ws0 output $monitor_1
+
+
+# Switch combination
+bindsym $mod+1 workspace $ws1
+bindsym $mod+Mod2+KP_1 workspace $ws1
+
+bindsym $mod+2 workspace $ws2
+bindsym $mod+Mod2+KP_2 workspace $ws2
+
+bindsym $mod+3 workspace $ws3
+bindsym $mod+Mod2+KP_3 workspace $ws3
+
+bindsym $mod+4 workspace $ws4
+bindsym $mod+Mod2+KP_4 workspace $ws4
+
+bindsym $mod+5 workspace $ws5
+bindsym $mod+Mod2+KP_5 workspace $ws5
+
+bindsym $mod+6 workspace $ws6
+bindsym $mod+Mod2+KP_6 workspace $ws6
+
+bindsym $mod+7 workspace $ws7
+bindsym $mod+Mod2+KP_7 workspace $ws7
+
+bindsym $mod+8 workspace $ws8
+bindsym $mod+Mod2+KP_8 workspace $ws8
+
+bindsym $mod+9 workspace $ws9
+bindsym $mod+Mod2+KP_9 workspace $ws9
+
+bindsym $mod+0 workspace $ws10
+bindsym $mod+Mod2+KP_0 workspace $ws10
+
+# Move the selected window to a designated workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+Mod2+KP_End move container to workspace $ws1
+
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+Mod2+KP_Down move container to workspace $ws2
+
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+Mod2+KP_Next move container to workspace $ws3
+
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+Mod2+KP_Left move container to workspace $ws4
+
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+Mod2+KP_Begin move container to workspace $ws5
+
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+Mod2+KP_Right move container to workspace $ws6
+
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+Mod2+KP_Home move container to workspace $ws7
+
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+Mod2+KP_Up move container to workspace $ws8
+
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+Mod2+KP_Prior move container to workspace $ws9
+
+bindsym $mod+Shift+0 move container to workspace $ws10
+bindsym $mod+Shift+Mod2+KP_Insert move container to workspace $ws10
+
+# Move between the workspaces with Mod+Tab
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
+
+
+####################################################################################################
+# 
+# Workspace assignment
+# 
+# This section, you may assign various programs to various workspaces when launched.
+# 
+
+# Workspace 1
+
+# Workspace 2
+
+# Workspace 3
+
+# Workspace 4
+
+# Workspace 5
+
+# Workspace 6
+
+# Workspace 7
+
+# Workspace 8
+
+# Workspace 9
+assign [class="discord"] $ws9
+
+# Workspace 10
+
+####################################################################################################
+# 
+# Auto startup
+# 
+# Here you may configure what programs that will be run at launch 
+#
+
+# Compositor
+exec --no-startup-id compton --config ~/.config/compton.conf
+
+# Dockd daemon
+# exec --no-startup-id dockd --daemon
+
+# Authentication agent
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+# Applets
+## Network manager
+exec --no-startup-id nm-applet
+
+## Bluetooth manager
+exec --no-startup-id blueman-applet
+
+# Tray programs
+exec --no-startup-id nextcloud
+exec --no-startup-id "jetbrains-toolbox --minimize"
+
+####################################################################################################
+# 
+# Reloading and exiting
+# 
+# This section configures how i3 reloads and exits from a session 
+#
+
+# Reloading the config file
+bindsym $mod+Shift+c reload
+
+# Restart the i3 session (persists the opened windows and programs)
+bindsym $mod+Shift+r restart
+
+# Exit i3
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+
+####################################################################################################
+# 
+# Special functions
+# 
+# This section contains various functions and extra functionality that enhances
+# the i3 session and allows for more fine grained actions. 
+#
+
+# Resize windows
+mode "resize" {
+	bindsym Left resize shrink width 10 px or 10 ppt
+	bindsym Down resize grow height 10 px or 10 ppt
+	bindsym Up resize shrink height 10 px or 10 ppt
+	bindsym Right resize grow width 10 px or 10 ppt
+	
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Move entire workspace to another monitor
+mode "move ws" {
+	bindsym Up move workspace to output up
+	bindsym Down move workspace to output down
+	bindsym Left move workspace to output left
+	bindsym Right move workspace to output right
+
+	bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+m mode "move ws"
+
+
+# Start i3bar to display system information
+bar {
+
+	# Which command to run, default i3status
+	# status_command		i3status
+	status_command		i3blocks -c ~/.config/i3blocks/config
+
+	# Where to draw the status bar, default buttom
+	position		top
+
+	# What mode to display the bar in, default dock
+	mode			dock
+
+	# Show the workspace buttons, default yes
+	workspace_buttons	yes
+
+	# Color configuration for the bar    
+	colors {
+		background #000000
+		statusline #ffffff
+
+		focused_workspace  #ffffff #285577
+		active_workspace   #ffffff #333333
+		inactive_workspace #888888 #222222
+		urgent_workspace   #ffffff #900000
+	}
+}
+

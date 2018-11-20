@@ -1,0 +1,150 @@
+####################################################################################################
+# 
+# i3 configuration
+# 
+# Author: Anders Refsdal Olsen (@andersro93)
+# Manual: https://github.com/vivien/i3blocks
+# 
+
+####################################################################################################
+# 
+# Basic configuration
+# 
+# This section makes basic configuration. Where to find commands etc..
+#
+
+# Location where commands are located
+command=/usr/lib/i3blocks/$BLOCK_NAME
+
+# How big the seperator should be in pixels
+separator_block_width=15
+
+# Markup language
+markup=pango
+
+
+####################################################################################################
+# 
+# Media section      
+# 
+# In this section, you may configure what information about the playing media you want to display 
+#
+
+[mediaplayer]
+instance=spotify
+interval=5
+signal=3
+
+
+####################################################################################################
+# 
+# CPU Section
+# 
+# In this section, you may configure what information about the CPU you want to display 
+#
+
+# CPU usage is percent
+[cpu_usage]
+label=
+interval=10
+separator=false
+
+# The current average load
+[load_average]
+interval=5
+separator=false
+
+# The temperature of the CPU
+[temperature]
+command=sensors -u coretemp-isa-0000 | grep temp1_input | cut -c 15-17 | xargs printf '%d°'
+interval=10
+
+
+####################################################################################################
+# 
+# Memory Section        
+# 
+# In this section, you may configure what information about the RAM you want to display 
+#
+
+[memory]
+label=
+interval=30
+
+
+####################################################################################################
+# 
+# DISK Section        
+# 
+# In this section, you may configure what information about the disk locations you want to display 
+#
+
+[disk]
+label=
+instance=/
+interval=30
+
+
+####################################################################################################
+# 
+# Networking Section        
+# 
+# In this section, you may configure what information about the networking you want to display 
+#
+
+[iface]
+label=
+instance=enp0s31f6
+color=#00FF00
+interval=10
+
+[wifi]
+label=
+instance=wlp4s0
+interval=10
+
+####################################################################################################
+# 
+# Battery Section        
+# 
+# In this section, you may configure what information about the battery you want to display 
+#
+
+# First battery
+[battery]
+label=⚡
+instance=0
+interval=10
+separator=false
+
+# Second battery
+[battery]
+label=⚡
+instance=1
+interval=10
+
+
+####################################################################################################
+# 
+# Volume Section        
+# 
+# In this section, you may configure what information about the volume you want to display 
+#
+
+[volume]
+label=♪
+instance=Master
+interval=once
+signal=2
+
+
+####################################################################################################
+# 
+# Time Section        
+# 
+# In this section, you may configure what information about the time you want to display 
+#
+
+[time]
+command=date '+%Y-%m-%d %H:%M:%S'
+interval=1
