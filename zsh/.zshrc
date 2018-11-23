@@ -64,7 +64,7 @@ source $ZSH/oh-my-zsh.sh
 export MANPATH="/usr/local/man:$MANPATH"
 
 # Language
-export LANG=en_GB.UTF-8
+export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export LANGUAGE=en_US.UTS-8
 
