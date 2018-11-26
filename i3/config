@@ -55,8 +55,8 @@ for_window [class="^.*"] border pixel 1
 #
 
 # Programs
-bindsym $mod+Shift+w exec google-chrome-beta
-bindsym XF86HomePage exec google-chrome-beta
+bindsym $mod+Shift+w exec firefox
+bindsym XF86HomePage exec firefox
 bindsym XF86Explorer exec terminator -e ranger
 bindsym XF86Calculator exec terminator -e maxima
 
@@ -136,8 +136,8 @@ bindsym $mod+c focus child
 #
 
 # Customize the name of each workspace
-set $ws1 "1: "
-set $ws2 "2: "
+set $ws1 "1: "
+set $ws2 "2: "
 set $ws3 "3: "
 set $ws4 "4: "
 set $ws5 "5: "
@@ -239,6 +239,7 @@ bindsym $mod+Shift+Tab workspace prev
 # Workspace 2
 
 # Workspace 3
+for_window [class="Spotify"] move to workspace $ws3
 
 # Workspace 4
 
@@ -268,18 +269,21 @@ exec --no-startup-id compton --config ~/.config/compton.conf
 # Dockd daemon
 # exec --no-startup-id dockd --daemon
 
+# Dunst (Notification daemon)
+exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
+
 # Authentication agent
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Applets
-## Network manager
+## Network Manager Applet
 exec --no-startup-id nm-applet
 
 ## Bluetooth manager
 exec --no-startup-id blueman-applet
 
 # Tray programs
-exec --no-startup-id nextcloud
+# exec --no-startup-id nextcloud
 exec --no-startup-id "jetbrains-toolbox --minimize"
 
 ####################################################################################################
@@ -354,8 +358,8 @@ bar {
 		background #000000
 		statusline #ffffff
 
-		focused_workspace  #ffffff #285577
-		active_workspace   #ffffff #333333
+		focused_workspace  #ffffff #FF0000
+		active_workspace   #ffffff #FF0000
 		inactive_workspace #888888 #222222
 		urgent_workspace   #ffffff #900000
 	}
