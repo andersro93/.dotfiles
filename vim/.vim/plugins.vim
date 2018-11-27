@@ -15,6 +15,18 @@ Plugin 'scrooloose/nerdtree'
 " Plugin for making navigation easier
 Plugin 'tpope/vim-vinegar'
 
+" Plugin for showing changes in git
+Plugin 'airblade/vim-gitgutter'
+
+" Plugin for nicer status line
+Plugin 'itchyny/lightline.vim'
+
+" Plugin for easy file access
+Plugin 'ctrlpvim/ctrlp.vim'
+
+" Darker theme
+Plugin 'liuchengxu/space-vim-dark'
+
 " -- END PLUGINS -- "
 
 call vundle#end()
