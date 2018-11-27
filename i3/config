@@ -77,9 +77,9 @@ bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'Brightness up
 bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'Brightness down'"
 
 # Print screen
-bindsym --release Print exec deepin-screenshot -f -n
-bindsym --release Shift+Print exec deepin-screenshot -n
-bindsym --release $mod+Shift+Print exec deepin-screenshot -w -n
+bindsym --release Print exec scrot '%Y-%m-%d_$wx$h_scrot.png' -e 'mv $f ~/Pictures/Screenshots/'
+bindsym --release Shift+Print exec scrot '%Y-%m-%d_$wx$h_scrot.png' -s -e 'mv $f ~/Pictures/Screenshots/'
+bindsym --release $mod+Shift+Print exec scrot '%Y-%m-%d_$wx$h_scrot.png' -u -e 'mv $f ~/Pictures/Screenshots/'
 
 # Settings
 bindsym XF86Display exec "arandr"
