@@ -82,8 +82,8 @@ bindsym --release Shift+Print exec scrot '%Y-%m-%d_$wx$h_scrot.png' -s -e 'mv $f
 bindsym --release $mod+Shift+Print exec scrot '%Y-%m-%d_$wx$h_scrot.png' -u -e 'mv $f ~/Pictures/Screenshots/'
 
 # Settings
-bindsym XF86Display exec "arandr"
-bindsym XF86Tools exec "autorandr -c"
+bindsym XF86Display exec arandr
+bindsym XF86Tools exec autorandr -c && xrdb .Xresources-$(autorandr --current) && restart
 
 ####################################################################################################
 # 
