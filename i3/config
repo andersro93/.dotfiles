@@ -14,40 +14,54 @@
 #
 
 # Set which key that will be used as a mod key
+# Mod1 = Alt, Mod4 = "Windows/Meta key"
 set $mod Mod4
 
-# Font to use, default is: pango:monospace
+# Default applications
+
+## Launcher - Programs
+set $launcher_programs "rofi -show run"
+
+## Launcher - SSH
+set $launcher_ssh "rofi -show ssh"
+
+## Browser
+set $browser firefox
+
+## Terminal emulator
+set $terminal terminator
+
+## File browser
+set $filebrowser $terminal -e ranger
+
+## Calculator
+set $calculator $terminal -e maxima
+
+# Minor visual configs
+
+## Font to use, default is: pango:monospace
 font pango:Hack 10, Awesome 10
 
-# Launchers
-bindsym $mod+d exec rofi -show run
-bindsym $mod+g exec rofi -show ssh
+## Wallpaper - Desktop
+set $wallpaper_desktop "~/.config/backgrounds/wallpaper.jpg"
 
-# Kill current window
-bindsym $mod+Shift+q kill
+## Wallpaper - Lockscreen
+set $wallpaper_lockscreen "~/.config/backgrounds/lockscreen.png"
 
-# Lock the screen
-bindsym $mod+l exec i3lock --image="/home/anders/.config/backgrounds/lockscreen.png" -e -f -c 000000
+# Print screen locations
+set $printscreen_folder = "~/Pictures/Screenshots"
 
-# Which key to use in combination with the mouse to move windows into position
-floating_modifier $mod
+# Titlebar visibility
+for_window [class="^.*"] border pixel 1
 
 # Hide border around windows
 hide_edge_borders none
-
-# Start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
-
-# Wallpaper
-# exec --no-startup-id feh --bg-scale ~/.config/backgrounds/wallpaper.jpg
 
 # Monitors
 set $monitor_1 DP2-2
 set $monitor_2 DP2-1
 set $monitor_3 DP2-3
 
-# Titlebar visibility
-for_window [class="^.*"] border pixel 1
 
 ####################################################################################################
 # 
@@ -57,19 +71,34 @@ for_window [class="^.*"] border pixel 1
 # programs etc...
 #
 
-# Programs
-bindsym $mod+Shift+w exec firefox
-bindsym XF86HomePage exec firefox
-bindsym XF86Explorer exec terminator -e ranger
-bindsym XF86Calculator exec terminator -e maxima
+# Terminal
+bindsym $mod+Return exec $terminal
+
+# Launchers
+bindsym $mod+d exec $launcher_programs
+bindsym $mod+g exec $launcher_ssh
+
+# Browser
+bindsym $mod+Shift+w exec $browser
+bindsym XF86HomePage exec $browser
+
+# Applications
+bindsym XF86Explorer exec $filebrowser
+bindsym XF86Calculator exec $calculator
 
 # Media keys
 bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +10%; pkill -RTMIN+2 i3blocks"
 bindsym XF86AudioLowerVolume exec "pactl set-sink-volume @DEFAULT_SINK@ -10%; pkill -RTMIN+2 i3blocks"
 bindsym XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle; pkill -RTMIN+2 i3blocks"
 bindsym XF86AudioMicMute exec "amixer set Capture toggle"
+
+## Play button
 bindsym XF86AudioPlay exec "mpc toggle; pkill -RTMIN+3 i3blocks"
+
+## Next button
 bindsym XF86AudioNext exec "mpc next ; pkill -RTMIN+3 i3blocks"
+
+## Prev button
 bindsym XF86AudioPrev exec "mpc prev ; pkill -RTMIN+3 i3blocks"
 
 # Brightness keys
@@ -77,9 +106,12 @@ bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'Brightness up
 bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'Brightness down'"
 
 # Print screen
-bindsym --release Print exec scrot '%Y-%m-%d_$wx$h_scrot.png' -e 'mv $f ~/Pictures/Screenshots/'
-bindsym --release Shift+Print exec scrot '%Y-%m-%d_$wx$h_scrot.png' -s -e 'mv $f ~/Pictures/Screenshots/'
-bindsym --release $mod+Shift+Print exec scrot '%Y-%m-%d_$wx$h_scrot.png' -u -e 'mv $f ~/Pictures/Screenshots/'
+bindsym --release Print exec scrot '%Y-%m-%d_$wx$h_scrot.png' -e "mv $f $printscreen_folder/"
+bindsym --release Shift+Print exec scrot '%Y-%m-%d_$wx$h_scrot.png' -s -e "mv $f $printscreen_folder/"
+bindsym --release $mod+Shift+Print exec scrot '%Y-%m-%d_$wx$h_scrot.png' -u -e "mv $f $printscreen_folder/"
+
+# Lockscreen
+bindsym $mod+l exec i3lock --image=$wallpaper_lockscreen -e -f -c 000000
 
 # Settings
 bindsym XF86Display exec arandr
@@ -92,6 +124,9 @@ bindsym XF86Tools exec autorandr -c && xrdb .Xresources-$(autorandr --current) &
 # This section configures how a workspace is being interacted with. How navigation between
 # windows occurs and how to auto arrange new windows etc..
 #
+
+# Close current window
+bindsym $mod+Shift+q kill
 
 # Change focus, arrows
 bindsym $mod+Left focus left
@@ -118,6 +153,9 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
+
+# Floating modifier, key that is used with mouse to move windows
+floating_modifier $mod
 
 # Toggle tiling and floating
 bindsym $mod+Shift+space floating toggle
@@ -273,7 +311,7 @@ exec --no-startup-id compton --config ~/.config/compton.conf
 exec --no-startup-id autorandr -c && xrdb .Xresources-$(autorandr --current)
 
 # Set wallpaper
-exec --no-startup-id feh --bg-scale .config/backgrounds/wallpaper.jpg
+exec --no-startup-id feh --bg-scale $wallpaper_desktop
 
 # Dunst (Notification daemon)
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
@@ -379,11 +417,13 @@ bar {
 	colors {
 		background #000000
 		statusline #ffffff
+		separator #666666
 
-		focused_workspace  #ffffff #FF0000
-		active_workspace   #ffffff #FF0000
-		inactive_workspace #888888 #222222
-		urgent_workspace   #ffffff #900000
+		focused_workspace  #4c7899 #285577 #ffffff
+		active_workspace   #333333 #5f676a #ffffff
+		inactive_workspace #333333 #222222 #888888
+		urgent_workspace   #2f343a #900000 #ffffff
+		binding_mode       #2f343a #900000 #ffffff
 	}
 }
 
