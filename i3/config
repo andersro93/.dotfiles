@@ -310,6 +310,9 @@ exec --no-startup-id compton --config ~/.config/compton.conf
 # Autorandr - And reload with current X variables
 exec --no-startup-id autorandr -c && xrdb .Xresources-$(autorandr --current)
 
+# Redshift
+exec --no-startup-id redshift -c ~/.config/redshift/config
+
 # Set wallpaper
 exec --no-startup-id feh --bg-scale $wallpaper_desktop
 
