@@ -43,7 +43,7 @@ MAX_LOST_WORK_SECS_ON_BAT=60
 #   you should know what you're doing! You *must* disable your distribution's
 #   governor settings or conflicts will occur.
 CPU_SCALING_GOVERNOR_ON_AC=performance
-CPU_SCALING_GOVERNOR_ON_BAT=performance
+CPU_SCALING_GOVERNOR_ON_BAT=powersave
 
 # Set the min/max frequency available for the scaling governor.
 # Possible values strongly depend on your CPU. For available frequencies see
@@ -58,7 +58,7 @@ CPU_SCALING_GOVERNOR_ON_BAT=performance
 # Values are given in order of increasing power saving.
 # Note: Intel Skylake or newer CPU and Kernel >= 4.10 required.
 CPU_HWP_ON_AC=balance_performance
-CPU_HWP_ON_BAT=balance_performance
+CPU_HWP_ON_BAT=balance_power
 
 # Set Intel P-state performance: 0..100 (%).
 # Limit the max/min P-state to control the power dissipation of the CPU.
@@ -67,7 +67,7 @@ CPU_HWP_ON_BAT=balance_performance
 CPU_MIN_PERF_ON_AC=0
 CPU_MAX_PERF_ON_AC=100
 CPU_MIN_PERF_ON_BAT=0
-CPU_MAX_PERF_ON_BAT=90
+CPU_MAX_PERF_ON_BAT=60
 
 # Set the CPU "turbo boost" feature: 0=disable, 1=allow
 # Requires an Intel Core i processor.
@@ -97,7 +97,7 @@ NMI_WATCHDOG=0
 # Values are given in order of increasing power saving.
 # Requires kernel module msr and x86_energy_perf_policy from linux-tools.
 ENERGY_PERF_POLICY_ON_AC=performance
-ENERGY_PERF_POLICY_ON_BAT=performance
+ENERGY_PERF_POLICY_ON_BAT=balance-performance
 
 # Disk devices; separate multiple devices with spaces (default: sda).
 # Devices can be specified by disk ID also (lookup with: tlp diskid).
