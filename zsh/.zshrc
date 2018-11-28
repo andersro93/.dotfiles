@@ -37,9 +37,6 @@ export PATH=$PATH:/usr/lib/google-cloud-sdk/platform/google_appengine
 # GPG Configuration
 export GPG_TTY=$(tty)
 
-# Scaling
-export GDK_SCALE=2
-
 ### Advanced config ###
 
 # Command auto-correction.

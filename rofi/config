@@ -1,5 +1,0 @@
-rofi.combi-modi:			window,drun,ssh
-rofi.font:				DejaVu 24
-rofi.modi:				combi
-rofi.ssh-command:			{terminal} -e "{ssh-client} {host}"
-rofi.theme:				/usr/share/rofi/themes/android_notification.rasi

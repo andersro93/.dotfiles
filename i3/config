@@ -17,7 +17,7 @@
 set $mod Mod4
 
 # Font to use, default is: pango:monospace
-font pango:DejaVu Sans Mono 9, Awesome 9
+font pango:Hack 10, Awesome 10
 
 # Launchers
 bindsym $mod+d exec rofi -show run
@@ -39,12 +39,12 @@ hide_edge_borders none
 bindsym $mod+Return exec i3-sensible-terminal
 
 # Wallpaper
-exec --no-startup-id feh --bg-scale ~/.config/backgrounds/wallpaper.jpg
+# exec --no-startup-id feh --bg-scale ~/.config/backgrounds/wallpaper.jpg
 
 # Monitors
-set $monitor_1 DP2-3
+set $monitor_1 DP2-2
 set $monitor_2 DP2-1
-set $monitor_3 DP2-2
+set $monitor_3 DP2-3
 
 # Titlebar visibility
 for_window [class="^.*"] border pixel 1
@@ -139,15 +139,15 @@ bindsym $mod+c focus child
 #
 
 # Customize the name of each workspace
-set $ws1 "1: "
-set $ws2 "2: "
-set $ws3 "3: "
-set $ws4 "4: "
-set $ws5 "5: "
-set $ws6 "6: "
-set $ws7 "7: "
-set $ws8 "8: "
-set $ws9 "9: "
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
 set $ws10 "10"
 
 # Workspace monitor setup
@@ -269,8 +269,11 @@ assign [class="discord"] $ws9
 # Compositor
 exec --no-startup-id compton --config ~/.config/compton.conf
 
-# Dockd daemon
-# exec --no-startup-id dockd --daemon
+# Autorandr - And reload with current X variables
+exec --no-startup-id autorandr -c && xrdb .Xresources-$(autorandr --current)
+
+# Set wallpaper
+exec --no-startup-id feh --bg-scale .config/backgrounds/wallpaper.jpg
 
 # Dunst (Notification daemon)
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
