@@ -32,10 +32,10 @@ set $browser firefox
 set $terminal terminator
 
 ## File browser
-set $filebrowser $terminal -e ranger
+set $filebrowser terminator -e ranger
 
 ## Calculator
-set $calculator $terminal -e maxima
+set $calculator terminator -e maxima
 
 # Minor visual configs
 
