@@ -10,6 +10,6 @@ xterm*font:                             *-fixed-*-*-*-24-*
 /** Rofi Configuration **/
 rofi.combi-modi:                        window,drun,ssh
 rofi.font:                              Hack 24
-rofi.modi:                              combi
+rofi.modi:                              combi,drun,ssh
 rofi.ssh-command:                       {terminal} -e "{ssh-client} {host}"
 rofi.theme:                             /usr/share/rofi/themes/android_notification.rasi
