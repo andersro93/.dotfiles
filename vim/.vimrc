@@ -1,5 +1,10 @@
 " Anders Refsdal Olsen vim configuration
 
+"--- Plugins ---"
+so ~/.vim/plugins.vim
+
+"--- General ---"
+
 " Set backspace behavior "
 set backspace=indent,eol,start
 
@@ -13,13 +18,13 @@ set number
 "--- Visuals ---"
 
 " Colorscheme "
-colorscheme atom-dark
+colorscheme space-vim-dark
 
 " Terminal colors "
 set t_CO=256
 
 " Font "
-set guifont=Fira_Code:h17
+set guifont=Fira_Code:h18
 
 " Syntax highlighting "
 syntax enable
@@ -72,13 +77,10 @@ nmap <C-Right> :tabn<cr>
 " Save shortcut "
 map <C-S> :w<cr>
 
-"--- Plugins ---"
-so ~/.vim/plugins.vim
-
 "--- Auto-commands ---"
 "Sources the .vimrc file on save"
 
-augroup autosourcing
+augroup autosourcin,
 	autocmd!
 	autocmd BufWritePost .vimrc source %
 augroup END

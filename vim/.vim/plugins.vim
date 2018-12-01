@@ -27,6 +27,12 @@ Plugin 'ctrlpvim/ctrlp.vim'
 " Darker theme
 Plugin 'liuchengxu/space-vim-dark'
 
+" Plugin for Python intellisense
+Plugin 'davidhalter/jedi-vim'
+
+" Plugin for searching vim files
+Plugin 'junegunn/fzf'
+
 " -- END PLUGINS -- "
 
 call vundle#end()
