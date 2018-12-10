@@ -8,8 +8,76 @@ Xft.dpi:                                200
 xterm*font:                             *-fixed-*-*-*-24-*
 
 /** Rofi Configuration **/
-rofi.combi-modi:                        window,drun,ssh
+rofi.combi-modi:                        window,drun,ssh,run
+rofi.color-enabled:			true
+rofi.terminal:				urxvt
 rofi.font:                              Hack 24
 rofi.modi:                              combi,drun,ssh
-rofi.ssh-command:                       {terminal} -e "{ssh-client} {host}"
+
+! SSH settings
+rofi.ssh-client:			ssh
+rofi.ssh-command:			urxvtc -e '{ssh-client} {host}'
+
+! Theme settings
 rofi.theme:                             /usr/share/rofi/themes/android_notification.rasi
+
+/** Urxvt Configuration **/
+! Cursor settings
+URxvt.cursorBlink:			true
+URxvt.cursorColor:			#657b83
+URxvt.cursorUnderline:			false
+
+! Font to use
+URxvt.font:				xft:Hack:size=12
+
+! Show or hide scrollbar
+URxvt.scrollBar:			false
+
+! Scroll to buttom on keypress
+URxvt*scrollTtyOutput:			true
+
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt*scrollWithBuffer:			true
+
+! scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress:		true
+
+/** Color settings **/
+*background:				#263238
+*foreground:				#EAF8FF
+*cursorColor:				#c7c7c7
+*highlightTextColor:			#607D8B
+*highlightColor:			#425B67
+
+! black
+*.color0:				#383c4a
+*.color8:				#383c4a
+
+! red
+*.color1:				#e28d9d
+*.color9:				#e28d9d
+
+! green
+*.color2:				#bfd888
+*.color10:				#bfd888
+
+! yellow
+*.color3:				#df936c
+*.color11:				#df936c
+
+! blue
+*.color4:				#5294e2
+*.color12:				#5294e2
+
+! magenta
+*.color5:				#f74771
+*.color13:				#f74771
+
+! cyan
+*.color6:				#7c818c
+*.color14:				#7c818c
+
+! white
+*.color7:				#d7d7d7
+*.color15:				#d7d7d7
+
