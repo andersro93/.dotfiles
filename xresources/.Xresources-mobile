@@ -42,42 +42,46 @@ URxvt*scrollWithBuffer:			true
 ! scroll back to the bottom on keypress
 URxvt*scrollTtyKeypress:		true
 
-/** Color settings **/
-*background:				#263238
-*foreground:				#EAF8FF
-*cursorColor:				#c7c7c7
-*highlightTextColor:			#607D8B
-*highlightColor:			#425B67
-
-! black
-*.color0:				#383c4a
-*.color8:				#383c4a
-
-! red
-*.color1:				#e28d9d
-*.color9:				#e28d9d
-
-! green
-*.color2:				#bfd888
-*.color10:				#bfd888
-
-! yellow
-*.color3:				#df936c
-*.color11:				#df936c
-
-! blue
-*.color4:				#5294e2
-*.color12:				#5294e2
-
-! magenta
-*.color5:				#f74771
-*.color13:				#f74771
-
-! cyan
-*.color6:				#7c818c
-*.color14:				#7c818c
-
-! white
-*.color7:				#d7d7d7
-*.color15:				#d7d7d7
-
+/** Color settings for Terminal **/
+*.background:				#1c262b
+*.background-alt:			#1b252a
+*.foreground:				#c2c8d7
+*.foreground-alt:			#a2a8a7
+*.cursorColor:				#b3b8c3
+!
+! Black
+*.color0:				#000000
+*.color8:				#777777
+!
+! Red
+*.color1:				#ee2b2a
+*.color9:				#dc5c60
+!
+! Green
+*.color2:				#40a33f
+*.color10:				#70be71
+!
+! Yellow
+*.color3:				#ffea2e
+*.color11:				#fff163
+!
+! Blue
+*.color4:				#1e80f0
+*.color12:				#54a4f3
+!
+! Magenta
+*.color5:				#8800a0
+*.color13:				#aa4dbc
+!
+! Cyan
+*.color6:				#16afca
+*.color14:				#42c7da
+!
+! White
+*.color7:				#a4a4a4
+*.color15:				#ffffff
+!
+! Bold, Italic, Underline
+*.colorBD:     #ffffff
+!*.colorIT:
+!*.colorUL:

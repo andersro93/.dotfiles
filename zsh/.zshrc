@@ -39,6 +39,9 @@ export GPG_TTY=$(tty)
 
 ### Advanced config ###
 
+# Make QT applications respect 4k
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+
 # Command auto-correction.
 ENABLE_CORRECTION="true"
 
