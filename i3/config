@@ -29,7 +29,7 @@ set $launcher_ssh "rofi -show ssh"
 set $browser firefox
 
 ## Terminal emulator
-set $terminal terminator
+set $terminal urxvt
 
 ## File browser
 set $filebrowser terminator -e ranger
@@ -49,7 +49,7 @@ set $wallpaper_desktop "~/.config/backgrounds/wallpaper.jpg"
 set $wallpaper_lockscreen "~/.config/backgrounds/lockscreen.png"
 
 # Print screen locations
-set $printscreen_folder = "~/Pictures/Screenshots"
+set $printscreen_folder "~/Pictures/Screenshots/"
 
 # Titlebar visibility
 for_window [class="^.*"] border pixel 1
@@ -102,13 +102,13 @@ bindsym XF86AudioNext exec "mpc next ; pkill -RTMIN+3 i3blocks"
 bindsym XF86AudioPrev exec "mpc prev ; pkill -RTMIN+3 i3blocks"
 
 # Brightness keys
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'Brightness up'"
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'Brightness down'"
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 10"
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
 
 # Print screen
-bindsym --release Print exec scrot '%Y-%m-%d_$wx$h_scrot.png' -e "mv $f $printscreen_folder/"
-bindsym --release Shift+Print exec scrot '%Y-%m-%d_$wx$h_scrot.png' -s -e "mv $f $printscreen_folder/"
-bindsym --release $mod+Shift+Print exec scrot '%Y-%m-%d_$wx$h_scrot.png' -u -e "mv $f $printscreen_folder/"
+bindsym --release Print exec scrot '%Y-%m-%d_$wx$h_scrot.png' -e "mv $f $printscreen_folder"
+bindsym --release Shift+Print exec scrot '%Y-%m-%d_$wx$h_scrot.png' -s -e "mv $f $printscreen_folder"
+bindsym --release $mod+Shift+Print exec scrot '%Y-%m-%d_$wx$h_scrot.png' -u -e "mv $f $printscreen_folder"
 
 # Lockscreen
 bindsym $mod+l exec i3lock --image=$wallpaper_lockscreen -e -f -c 000000
@@ -322,6 +322,9 @@ exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 # Authentication agent
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
+# Polybar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
 # Applets
 ## Network Manager Applet
 exec --no-startup-id nm-applet
@@ -398,35 +401,4 @@ mode "move ws" {
 }
 
 bindsym $mod+Shift+m mode "move ws"
-
-
-# Start i3bar to display system information
-bar {
-
-	# Which command to run, default i3status
-	# status_command		i3status
-	status_command		i3blocks -c ~/.config/i3blocks/config
-
-	# Where to draw the status bar, default buttom
-	position		top
-
-	# What mode to display the bar in, default dock
-	mode			dock
-
-	# Show the workspace buttons, default yes
-	workspace_buttons	yes
-
-	# Color configuration for the bar    
-	colors {
-		background #000000
-		statusline #ffffff
-		separator #666666
-
-		focused_workspace  #4c7899 #285577 #ffffff
-		active_workspace   #333333 #5f676a #ffffff
-		inactive_workspace #333333 #222222 #888888
-		urgent_workspace   #2f343a #900000 #ffffff
-		binding_mode       #2f343a #900000 #ffffff
-	}
-}
 
