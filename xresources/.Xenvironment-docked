@@ -1,0 +1,4 @@
+/** Settings on 1080p monitor **/
+Xft.dpi:				        100
+rofi.font:				        Hack 12
+xterm*font:				        *-fixed-*-*-*-12-*
