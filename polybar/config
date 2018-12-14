@@ -22,7 +22,7 @@ secondary		=	#e60053
 alert			=	${xrdb:color1}
 success			=	${xrdb:color2}
 warning 		=	${xrdb:color3}
-bar 			=	${xrdb:color6}
+running			=	${xrdb:color6}
 
 ####################################################################################################
 # 
@@ -150,7 +150,7 @@ label-mode-background = ${colors.background}
 # focused = Active workspace on focused monitor
 label-focused = %index%
 label-focused-background = ${colors.background-alt}
-label-focused-underline = ${colors.success}
+label-focused-underline = ${colors.running}
 label-focused-padding = 2
 
 # unfocused = Inactive workspace on any monitor
@@ -197,7 +197,7 @@ bar-indicator-foreground = #fff
 bar-indicator-font = 2
 bar-fill = ─
 bar-fill-font = 2
-bar-fill-foreground = ${colors.bar}
+bar-fill-foreground = ${colors.running}
 bar-empty = ─
 bar-empty-font = 2
 bar-empty-foreground = ${colors.foreground}
@@ -336,7 +336,7 @@ adapter = AC
 full-at = 85
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = ${colors.bar}
+format-charging-underline = ${colors.running}
 format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-underline = ${colors.warning}
 
@@ -362,7 +362,7 @@ adapter = AC
 full-at = 90
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = ${colors.bar}
+format-charging-underline = ${colors.running}
 
 format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-underline = ${colors.warning}
