@@ -33,6 +33,9 @@ Plugin 'davidhalter/jedi-vim'
 " Plugin for searching vim files
 Plugin 'junegunn/fzf'
 
+" Color preview plugin 
+Plugin 'ap/vim-css-color'
+
 " -- END PLUGINS -- "
 
 call vundle#end()

@@ -40,7 +40,7 @@ URxvt*scrollTtyKeypress:		true
 
 /** Color settings for Terminal **/
 *.background:			        #1c262b
-*.background-alt:		        #1b252a
+*.background-alt:		        #2c465b
 *.foreground:			        #c2c8d7
 *.foreground-alt:		        #a2a8a7
 *.cursorColor:			        #b3b8c3

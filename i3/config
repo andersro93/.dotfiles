@@ -314,16 +314,13 @@ exec --no-startup-id autorandr -c && xrdb .Xresources-$(autorandr --current)
 exec --no-startup-id redshift -c ~/.config/redshift/config
 
 # Set wallpaper
-exec --no-startup-id feh --bg-scale $wallpaper_desktop
+exec_always --no-startup-id feh --bg-scale $wallpaper_desktop
 
 # Dunst (Notification daemon)
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 
 # Authentication agent
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-
-# Polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Applets
 ## Network Manager Applet
@@ -343,14 +340,29 @@ exec --no-startup-id "jetbrains-toolbox --minimize"
 # This section configures the color settings for i3
 #
 
-# class                 border  backgr. text    indicator child_border
-client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
-client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
-client.unfocused        #333333 #222222 #888888 #292d2e   #222222
-client.urgent           #2f343a #900000 #ffffff #900000   #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+# Retrieve colors from X resources
+set_from_resource	$black		color0		#000000
+set_from_resource	$red		color1		#ee2b2a
+set_from_resource	$green		color2		#40a33f
+set_from_resource	$yellow		color3		#ffea2e
+set_from_resource	$blue		color4		#1e80f0
+set_from_resource	$magenta	color5		#8800a0
+set_from_resource	$cyan		color6		#16afca
+set_from_resource	$white		color7		#a4a4a4
 
-client.background       #ffffff
+set_from_resource	$background	background	#1c262b
+set_from_resource	$background-alt	background-alt	#2c465b
+set_from_resource	$foreground	foreground	#c2c8d7
+set_from_resource	$cursorColor	cursorColor	#b3b8c3
+
+# class                 border		background	text		indicator	child_border
+client.focused          $background	$background	$foreground	$blue		$background-alt
+client.focused_inactive $background	$background	$foreground	$blue		$background
+client.unfocused        $background	$background	$foreground	$blue		$background-alt
+client.urgent           $red		$background	$foreground	$blue		$red
+client.placeholder      $background	$background	$foreground	$blue		$background-alt
+
+client.background       $background
 
 ####################################################################################################
 # 
@@ -401,4 +413,36 @@ mode "move ws" {
 }
 
 bindsym $mod+Shift+m mode "move ws"
+
+# Start i3bar to display system information
+bar {
+
+	# Which command to run, default i3status
+	# status_command		i3status
+	status_command		i3blocks -c ~/.config/i3blocks/config
+
+	# Where to draw the status bar, default buttom
+	position		top
+
+	# What mode to display the bar in, default dock
+	mode			dock
+
+	# Show the workspace buttons, default yes
+	workspace_buttons	yes
+
+	# Color configuration for the bar    
+	colors {
+		# Class
+		background		$background
+		statusline		$foreground
+		separator		$background-alt		
+
+		# Class			# Border	# Background	# Text
+		focused_workspace	$blue		$blue		$foreground
+		active_workspace	$blue		$background	$foreground
+		inactive_workspace	$background	$background	$foreground
+		urgent_workspace	$red		$red		$foreground
+		binding_mode		$yellow		$background	$foreground
+	}
+}
 
