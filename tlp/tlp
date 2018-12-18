@@ -58,7 +58,7 @@ CPU_SCALING_GOVERNOR_ON_BAT=powersave
 # Values are given in order of increasing power saving.
 # Note: Intel Skylake or newer CPU and Kernel >= 4.10 required.
 CPU_HWP_ON_AC=balance_performance
-CPU_HWP_ON_BAT=power
+CPU_HWP_ON_BAT=balance_power
 
 # Set Intel P-state performance: 0..100 (%).
 # Limit the max/min P-state to control the power dissipation of the CPU.
@@ -80,7 +80,7 @@ CPU_BOOST_ON_BAT=1
 # Minimize number of used CPU cores/hyper-threads under light load conditions:
 #   0=disable, 1=enable.
 SCHED_POWERSAVE_ON_AC=0
-SCHED_POWERSAVE_ON_BAT=1
+SCHED_POWERSAVE_ON_BAT=0
 
 # Kernel NMI Watchdog:
 #   0=disable (default, saves power), 1=enable (for kernel debugging only).
