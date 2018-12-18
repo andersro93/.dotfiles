@@ -48,9 +48,6 @@ set $wallpaper_desktop "~/.config/backgrounds/wallpaper.jpg"
 ## Wallpaper - Lockscreen
 set $wallpaper_lockscreen "~/.config/backgrounds/lockscreen.png"
 
-# Print screen locations
-set $printscreen_folder "~/Pictures/Screenshots/"
-
 # Titlebar visibility
 for_window [class="^.*"] border pixel 1
 
@@ -106,9 +103,9 @@ bindsym XF86MonBrightnessUp exec "xbacklight -inc 10"
 bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
 
 # Print screen
-bindsym --release Print exec scrot '%Y-%m-%d_$wx$h_scrot.png' -e "mv $f $printscreen_folder"
-bindsym --release Shift+Print exec scrot '%Y-%m-%d_$wx$h_scrot.png' -s -e "mv $f $printscreen_folder"
-bindsym --release $mod+Shift+Print exec scrot '%Y-%m-%d_$wx$h_scrot.png' -u -e "mv $f $printscreen_folder"
+bindsym --release Print exec scrot '%Y-%m-%d_$wx$h_scrot.png' -e 'mv $f ~/Pictures/Screenshots/'
+bindsym --release Shift+Print exec scrot '%Y-%m-%d_$wx$h_scrot.png' -s -e 'mv $f ~/Pictures/Screenshots/'
+bindsym --release $mod+Shift+Print exec scrot '%Y-%m-%d_$wx$h_scrot.png' -u -e 'mv $f ~/Pictures/Screenshots/'
 
 # Lockscreen
 bindsym $mod+l exec i3lock --image=$wallpaper_lockscreen -e -f -c 000000
