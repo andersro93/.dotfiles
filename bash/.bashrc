@@ -1,10 +1,10 @@
 ###############################################
 #
 # Bashrc Configuration
-# 
+#
 # Author: Anders Refsdal Olsen (@andersro93)
 # Manual: $(man bash)
-# 
+#
 ###############################################
 
 # First, check if in interactive mode, if so, skip the file
@@ -112,6 +112,7 @@ __vcs_name() {
 
 
 ### Bash completion ###
+# Basic completion
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
@@ -120,6 +121,12 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Git completion
+## Install with this: git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
+if [ -d ~/.bash-git-prompt ]; then
+    GIT_PROMPT_ONLY_IN_REPO=1
+    source ~/.bash-git-prompt/gitprompt.sh
+fi
 
 ### Terminal prompt ###
 export PS1='\n\[$bold\]\[$black\]\[$dk_blue\]\A\[$black\] - \[$green\]\u\[$yellow\]@\[$green\]\h\[$black\] - \[$pink\]\w\[$black\]\[\033[0;33m\]$(__vcs_name) \[\033[00m\]\[$reset\]\n\[$reset\]\$ '
