@@ -42,9 +42,6 @@ set $calculator terminator -e maxima
 ## Font to use, default is: pango:monospace
 font pango:Hack 10, Awesome 10
 
-## Wallpaper - Desktop
-set $wallpaper_desktop "~/.config/backgrounds/wallpaper.jpg"
-
 ## Wallpaper - Lockscreen
 set $wallpaper_lockscreen "~/.config/backgrounds/lockscreen.png"
 
@@ -311,7 +308,7 @@ exec --no-startup-id autorandr -c && xrdb .Xresources-$(autorandr --current)
 exec --no-startup-id redshift -c ~/.config/redshift/config
 
 # Set wallpaper
-exec_always --no-startup-id feh --bg-scale $wallpaper_desktop
+exec_always --no-startup-id feh --bg-scale ~/.config/backgrounds/wallpaper
 
 # Dunst (Notification daemon)
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
