@@ -123,9 +123,9 @@ fi
 
 # Git completion
 ## Install with this: git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
-if [ -d ~/.bash-git-prompt ]; then
+if [ -f ~/.dotfiles/bash/bash-git-prompt/gitprompt.sh ]; then
     GIT_PROMPT_ONLY_IN_REPO=1
-    source ~/.bash-git-prompt/gitprompt.sh
+    source ~/.dotfiles/bash/bash-git-prompt/gitprompt.sh
 fi
 
 ### Terminal prompt ###
