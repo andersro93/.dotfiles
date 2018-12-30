@@ -8,5 +8,11 @@ if [ -f ~/.Xenvironment_default ]; then
     xrdb -merge ~/.Xenvironment_default
 fi
 
+# Start clipboard helper
+autocutsel -f
+
+# Start Urxvtc daemon
+urxvtd -q -f -o
+
 # Start i3
 exec i3
