@@ -2,14 +2,15 @@
 Xft.antialias:              true
 Xft.hinting:                true
 Xft.rgba:                   rgb
-Xft.hintstyle:				hintfull
+Xft.hintstyle:              hintfull
 
 /** Rofi Configuration **/
-rofi.modi:                  run,window
+rofi.modi:                  run,window,ssh
 rofi.color-enabled:         true
-rofi.terminal:              /usr/bin/urxvtc
-rofi.run-shell-command:     /usr/bin/urxvtc -e '{cmd}'
-rofi.ssh-command:           /usr/bin/tmux split-window -h -p 50 '{ssh-client} {host}'
+rofi.terminal:              urxvtc
+rofi.ssh-client:            ssh
+rofi.run-shell-command:     urxvtc -e '{cmd}'
+rofi.ssh-command:           urxvtc -e {ssh-client} {host}
 
 ! Theme settings
 rofi.theme:                 /usr/share/rofi/themes/android_notification.rasi
@@ -34,6 +35,16 @@ URxvt*scrollWithBuffer:     true
 
 ! scroll back to the bottom on keypress
 URxvt*scrollTtyKeypress:    true
+
+! Plugins
+URxvt.perl-ext-common:      selection-to-clipboard,matcher,fullscreen,resize-font
+
+! Clickable urls
+URxvt.url-launcher:         /usr/bin/xdg-open
+URxvt.matcher.button:       1
+
+! Fullscreen toggle
+URxvt.keysym.F11:           perl:fullscreen:switch
 
 /** Color settings for Terminal **/
 *.background:               #1c262b
