@@ -15,6 +15,9 @@ esac
 
 ### General settings ###
 
+# Set color mode
+export TERM=xterm-256color
+
 # Set the default editor
 export EDITOR=vim
 
@@ -130,4 +133,3 @@ fi
 
 ### Terminal prompt ###
 export PS1='\n\[$bold\]\[$black\]\[$dk_blue\]\A\[$black\] - \[$green\]\u\[$yellow\]@\[$green\]\h\[$black\] - \[$pink\]\w\[$black\]\[\033[0;33m\]$(__vcs_name) \[\033[00m\]\[$reset\]\n\[$reset\]\$ '
-
