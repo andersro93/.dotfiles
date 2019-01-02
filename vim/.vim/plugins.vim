@@ -36,6 +36,9 @@ Plugin 'junegunn/fzf'
 " Color preview plugin 
 Plugin 'ap/vim-css-color'
 
+" Vim prescence for Discord
+Plugin 'anned20/vimsence'
+
 " -- END PLUGINS -- "
 
 call vundle#end()
