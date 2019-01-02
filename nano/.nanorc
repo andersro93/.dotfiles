@@ -1,0 +1,6 @@
+# Set line numbering
+set constantshow
+
+# Tab settings
+set tabsize 4
+set tabstospaces
