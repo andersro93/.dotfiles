@@ -40,7 +40,7 @@ set $calculator terminator -e maxima
 # Minor visual configs
 
 ## Font to use, default is: pango:monospace
-font pango:Hack 10, Awesome 10
+font pango:Fira Code Mono 9, Awesome 9
 
 ## Wallpaper - Lockscreen
 set $wallpaper_lockscreen "~/.config/backgrounds/lockscreen.png"
@@ -79,8 +79,8 @@ bindsym XF86Explorer exec $filebrowser
 bindsym XF86Calculator exec $calculator
 
 # Media keys
-bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +10%; pkill -RTMIN+2 i3blocks"
-bindsym XF86AudioLowerVolume exec "pactl set-sink-volume @DEFAULT_SINK@ -10%; pkill -RTMIN+2 i3blocks"
+bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +10%;notify-send 'Volume' 'Volume has been increased by 10%' -u low -t 700; pkill -RTMIN+2 i3blocks"
+bindsym XF86AudioLowerVolume exec "pactl set-sink-volume @DEFAULT_SINK@ -10%;notify-send 'Volume' 'Volume has ben decreased by 10%' -u low -t 700; pkill -RTMIN+2 i3blocks"
 bindsym XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle; pkill -RTMIN+2 i3blocks"
 bindsym XF86AudioMicMute exec "amixer set Capture toggle"
 
@@ -94,20 +94,20 @@ bindsym XF86AudioNext exec "mpc next ; pkill -RTMIN+3 i3blocks"
 bindsym XF86AudioPrev exec "mpc prev ; pkill -RTMIN+3 i3blocks"
 
 # Brightness keys
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 10"
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'Brightness' 'Brightness has been adjusted to a level brighter' -u low -t 700"
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'Brightness' 'Brightness has been adjusted a level darker' -u low -t 700"
 
 # Print screen
-bindsym --release Print exec scrot '%Y-%m-%d_$wx$h_scrot.png' -e 'mv $f ~/Pictures/Screenshots/'
-bindsym --release Shift+Print exec scrot '%Y-%m-%d_$wx$h_scrot.png' -s -e 'mv $f ~/Pictures/Screenshots/'
-bindsym --release $mod+Shift+Print exec scrot '%Y-%m-%d_$wx$h_scrot.png' -u -e 'mv $f ~/Pictures/Screenshots/'
+bindsym --release Print exec "scrot '%Y-%m-%d_$wx$h_scrot.png' -e 'mv $f ~/Pictures/Screenshots/';notify-send 'Printscreen' 'Screenshot of the entire screen has been taken and saved' -u low -t 1000"
+bindsym --release Shift+Print exec "scrot '%Y-%m-%d_$wx$h_scrot.png' -s -e 'mv $f ~/Pictures/Screenshots/';notify-send 'Printscreen' 'Screenshot of the selection has been saved' -u low -t 1000"
+bindsym --release $mod+Shift+Print exec "scrot '%Y-%m-%d_$wx$h_scrot.png' -u -e 'mv $f ~/Pictures/Screenshots/';notify-send 'Printscreen' 'Screenshot of the focused window has been saved' -u low -t 1000"
 
 # Lockscreen
 bindsym $mod+l exec i3lock --image=$wallpaper_lockscreen -e -f -c 000000
 
 # Settings
 bindsym XF86Display exec arandr
-bindsym XF86Tools exec autorandr -c && xrdb .Xresources-$(autorandr --current) && restart
+bindsym XF86Tools exec "autorandr -c && xrdb -merge .Xenvironment_$(autorandr --current) && restart; notify-send 'Configuration reload' 'The screen configuration has been reloaded' -u low -t 2000"
 
 ####################################################################################################
 # 
@@ -289,41 +289,6 @@ assign [class="discord"] $ws9
 
 # Workspace 10
 
-####################################################################################################
-# 
-# Auto startup
-# 
-# Here you may configure what programs that will be run at launch 
-#
-
-# Compositor
-exec --no-startup-id compton --config ~/.config/compton.conf
-
-# Autorandr - And reload with current X variables
-exec --no-startup-id autorandr -c && xrdb .Xresources-$(autorandr --current)
-
-# Redshift
-exec --no-startup-id redshift -c ~/.config/redshift/config
-
-# Set wallpaper
-exec_always --no-startup-id feh --bg-scale ~/.config/backgrounds/wallpaper
-
-# Dunst (Notification daemon)
-exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
-
-# Authentication agent
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-
-# Applets
-## Network Manager Applet
-exec --no-startup-id nm-applet
-
-## Bluetooth manager
-exec --no-startup-id blueman-applet
-
-# Tray programs
-# exec --no-startup-id nextcloud
-exec --no-startup-id "jetbrains-toolbox --minimize"
 
 ####################################################################################################
 # 
@@ -355,6 +320,44 @@ client.urgent           $red		$background	$foreground	$blue		$red
 client.placeholder      $background	$background	$foreground	$blue		$background-alt
 
 client.background       $background
+
+
+####################################################################################################
+# 
+# Auto startup
+# 
+# Here you may configure what programs that will be run at launch 
+#
+
+# Autorandr - And reload with current X variables
+exec --no-startup-id autorandr -c && xrdb .Xresources-$(autorandr --current)
+
+# Redshift
+exec --no-startup-id redshift -c ~/.config/redshift/config
+
+# Set wallpaper
+exec_always --no-startup-id feh --bg-scale ~/.config/backgrounds/wallpaper
+
+# Authentication agent
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+# Dunst notification daemon
+exec_always --no-startup-id dunst -config ~/.config/dunst/dunstrc
+
+# Applets
+## Network Manager Applet
+exec --no-startup-id nm-applet
+
+## Bluetooth manager
+exec --no-startup-id blueman-applet
+
+## Disk automounter
+exec --no-startup-id udiskie -t
+
+# Tray programs
+# exec --no-startup-id nextcloud
+exec --no-startup-id "jetbrains-toolbox --minimize"
+
 
 ####################################################################################################
 # 

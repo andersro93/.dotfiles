@@ -14,5 +14,11 @@ autocutsel -f
 # Start Urxvtc daemon
 urxvtd -q -f -o
 
+# Start compton
+compton --config ~/.config/compton.conf &
+
+# Start Pulseaudio
+start-pulseaudio-x11
+
 # Start i3
-exec i3
+exec dbus-launch --autolaunch=$(cat /var/lib/dbus/machine-id) i3
