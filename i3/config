@@ -29,7 +29,7 @@ set $launcher_ssh "rofi -show ssh"
 set $browser firefox
 
 ## Terminal emulator
-set $terminal urxvtc
+set $terminal urxvt
 
 ## File browser
 set $filebrowser terminator -e ranger
@@ -40,7 +40,7 @@ set $calculator terminator -e maxima
 # Minor visual configs
 
 ## Font to use, default is: pango:monospace
-font pango:Fira Code Mono 9, Awesome 9
+font pango:DejaVu Sans Mono 10, Awesome 10
 
 ## Wallpaper - Lockscreen
 set $wallpaper_lockscreen "~/.config/backgrounds/lockscreen.png"
@@ -312,12 +312,12 @@ set_from_resource	$background-alt	background-alt	#2c465b
 set_from_resource	$foreground	foreground	#c2c8d7
 set_from_resource	$cursorColor	cursorColor	#b3b8c3
 
-# class                 border		background	text		indicator	child_border
-client.focused          $background	$background	$foreground	$blue		$background-alt
-client.focused_inactive $background	$background	$foreground	$blue		$background
-client.unfocused        $background	$background	$foreground	$blue		$background-alt
-client.urgent           $red		$background	$foreground	$blue		$red
-client.placeholder      $background	$background	$foreground	$blue		$background-alt
+# class                 border		    background	    text		indicator	child_border
+client.focused          $background-alt	$background-alt	$foreground	$blue		$background-alt
+client.focused_inactive $background-alt $background-alt $foreground	$blue		$background
+client.unfocused        $background-alt	$background	    $foreground	$blue		$background-alt
+client.urgent           $red		    $background	    $foreground	$blue		$red
+client.placeholder      $background-alt $background	    $foreground	$blue		$background-alt
 
 client.background       $background
 
