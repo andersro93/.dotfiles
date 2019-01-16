@@ -11,9 +11,6 @@ fi
 # Start clipboard helper
 autocutsel -f
 
-# Start Urxvtc daemon
-urxvtd -q -f -o
-
 # Start compton
 compton --config ~/.config/compton.conf &
 
