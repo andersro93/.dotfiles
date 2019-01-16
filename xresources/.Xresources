@@ -52,10 +52,10 @@ Xft.hintstyle:              hintfull
 /** Rofi Configuration **/
 rofi.modi:                  run,window,ssh
 rofi.color-enabled:         true
-rofi.terminal:              urxvtc
+rofi.terminal:              urxvt
 rofi.ssh-client:            ssh
-rofi.run-shell-command:     urxvtc -e '{cmd}'
-rofi.ssh-command:           urxvtc -e {ssh-client} {host}
+rofi.run-shell-command:     urxvt -e '{cmd}'
+rofi.ssh-command:           urxvt -e {ssh-client} {host}
 
 ! Theme settings
 rofi.theme:                 /usr/share/rofi/themes/android_notification.rasi
@@ -67,7 +67,7 @@ URxvt.cursorColor:          #657b83
 URxvt.cursorUnderline:      false
 
 ! Font to use
-URxvt.font:                 xft:Hack:size=12
+URxvt.font:                 xft:DejaVu Sans Mono:size=10
 
 ! Show or hide scrollbar
 URxvt.scrollBar:            false
@@ -82,13 +82,9 @@ URxvt*scrollWithBuffer:     true
 URxvt*scrollTtyKeypress:    true
 
 ! Plugins
-URxvt.perl-ext-common:      selection-to-clipboard,matcher,fullscreen,resize-font
+URxvt.perl-ext-common:      selection-to-clipboard,matcher
 
 ! Clickable urls
 URxvt.url-launcher:         /usr/bin/xdg-open
 URxvt.matcher.button:       1
-
-! Fullscreen toggle
-URxvt.keysym.F11:           perl:fullscreen:switch
-
 
