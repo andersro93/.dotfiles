@@ -16,10 +16,13 @@ esac
 ### General settings ###
 
 # Set color mode
-export TERM=xterm-256color
+# export TERM=xterm-256color
 
 # Set the default editor
-export EDITOR=vim
+export EDITOR=nvim
+
+# Set arch variable
+export ARCH=amd64
 
 # Check window size after each command
 shopt -s checkwinsize
