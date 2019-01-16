@@ -1,1 +1,2 @@
+# Ignore plugins for Neovim
 nvim/bundle/*
