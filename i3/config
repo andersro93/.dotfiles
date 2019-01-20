@@ -98,9 +98,9 @@ bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'Brightness' '
 bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'Brightness' 'Brightness has been adjusted a level darker' -u low -t 700"
 
 # Print screen
-bindsym --release Print exec "scrot '%Y-%m-%d_$wx$h_scrot.png' -e 'mv $f ~/Pictures/Screenshots/';notify-send 'Printscreen' 'Screenshot of the entire screen has been taken and saved' -u low -t 1000"
-bindsym --release Shift+Print exec "scrot '%Y-%m-%d_$wx$h_scrot.png' -s -e 'mv $f ~/Pictures/Screenshots/';notify-send 'Printscreen' 'Screenshot of the selection has been saved' -u low -t 1000"
-bindsym --release $mod+Shift+Print exec "scrot '%Y-%m-%d_$wx$h_scrot.png' -u -e 'mv $f ~/Pictures/Screenshots/';notify-send 'Printscreen' 'Screenshot of the focused window has been saved' -u low -t 1000"
+bindsym --release Print exec screenshot
+bindsym --release $mod+Print exec screenshot selection
+bindsym --release $mod+Shift+Print exec screenshot window
 
 # Lockscreen
 bindsym $mod+l exec i3lock --image=$wallpaper_lockscreen -e -f -c 000000
