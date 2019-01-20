@@ -63,6 +63,15 @@ export PATH=$PATH:/usr/lib/google-cloud-sdk/platform/google_appengine
 # GPG Configuration
 export GPG_TTY=$(tty)
 
+# Check if script library is "installed"
+if [[ -f "$HOME/.scripts/config" ]]; then
+    
+    # Source the configuration for the scripts
+    source "$HOME/.scripts/config"
+
+    # Export a path with the scripts
+    export PATH=$PATH:$HOME/.scripts/path
+fi
 
 ### Aliases ###
 
@@ -88,35 +97,6 @@ lt_blue=$(tput -Txterm setaf 6)
 bold=$(tput -Txterm bold)
 reset=$(tput -Txterm sgr0)
 
-
-### Terminal functions ###
-__has_parent_dir () {
-    # Utility function so we can test for things like .git/.hg without firing up a
-    # separate process
-    test -d "$1" && return 0;
-
-    current="."
-    while [ ! "$current" -ef "$current/.." ]; do
-        if [ -d "$current/$1" ]; then
-            return 0;
-        fi
-        current="$current/..";
-    done
-
-    return 1;
-}
-
-__vcs_name() {
-    if [ -d .svn ]; then
-	    echo " (svn)";
-    elif __has_parent_dir ".git"; then
-	    echo " ($(__git_ps1 'git %s'))";
-    elif __has_parent_dir ".hg"; then
-	    echo " (hg $(hg branch))"
-    fi
-}
-
-
 ### Bash completion ###
 # Basic completion
 if ! shopt -oq posix; then
@@ -135,4 +115,4 @@ if [ -f ~/.dotfiles/bash/bash-git-prompt/gitprompt.sh ]; then
 fi
 
 ### Terminal prompt ###
-export PS1='\n\[$bold\]\[$black\]\[$dk_blue\]\A\[$black\] - \[$green\]\u\[$yellow\]@\[$green\]\h\[$black\] - \[$pink\]\w\[$black\]\[\033[0;33m\]$(__vcs_name) \[\033[00m\]\[$reset\]\n\[$reset\]\$ '
+export PS1='\n\[$bold\]\[$black\]\[$dk_blue\]\A\[$black\] - \[$green\]\u\[$yellow\]@\[$green\]\h\[$black\] - \[$pink\]\w\[$black\]\[\033[0;33m\] \[\033[00m\]\[$reset\]\n\[$reset\]\$ '
