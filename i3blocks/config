@@ -134,7 +134,7 @@ interval=5
 [volume]
 label=♪
 instance=Master
-interval=once
+interval=10
 signal=2
 
 
