@@ -414,23 +414,26 @@ bar {
 
 	# Which command to run, default i3status
 	# status_command		i3status
-	status_command		i3blocks -c ~/.config/i3blocks/config
+	status_command      i3blocks -c ~/.config/i3blocks/config
+
+    # Set the location of the tray
+    tray_output         primary
 
 	# Where to draw the status bar, default buttom
-	position		top
+	position            top
 
 	# What mode to display the bar in, default dock
-	mode			dock
+	mode                dock
 
 	# Show the workspace buttons, default yes
-	workspace_buttons	yes
+	workspace_buttons   yes
 
 	# Color configuration for the bar    
 	colors {
 		# Class
-		background		$background
-		statusline		$foreground
-		separator		$background-alt		
+		background      $background
+		statusline      $foreground
+		separator       $background-alt		
 
 		# Class			# Border	# Background	# Text
 		focused_workspace	$blue		$blue		$foreground
