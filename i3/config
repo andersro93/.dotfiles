@@ -106,7 +106,6 @@ bindsym --release $mod+Shift+Print exec screenshot window
 bindsym $mod+l exec i3lock --image=$wallpaper_lockscreen -e -f -c 000000
 
 # Settings
-bindsym XF86Display exec arandr
 bindsym XF86Tools exec "autorandr -c && xrdb -merge .Xenvironment_$(autorandr --current) && restart; notify-send 'Configuration reload' 'The screen configuration has been reloaded' -u low -t 2000"
 
 ####################################################################################################
@@ -169,15 +168,15 @@ bindsym $mod+c focus child
 #
 
 # Customize the name of each workspace
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
+set $ws1 "1: "
+set $ws2 "2: "
+set $ws3 "3: "
+set $ws4 "4: "
+set $ws5 "5: "
+set $ws6 "6: "
+set $ws7 "7: "
+set $ws8 "8: "
+set $ws9 "9: "
 set $ws10 "10"
 
 # Workspace monitor setup
@@ -272,7 +271,6 @@ bindsym $mod+Shift+Tab workspace prev
 # Workspace 2
 
 # Workspace 3
-for_window [class="Spotify"] move to workspace $ws3
 
 # Workspace 4
 
@@ -283,9 +281,12 @@ for_window [class="Spotify"] move to workspace $ws3
 # Workspace 7
 
 # Workspace 8
+for_window [class="Spotify"] move to workspace $ws8
+assign [class="cmus"] $ws8
 
 # Workspace 9
 assign [class="discord"] $ws9
+for_window [class="slack"] move to workspace $ws9
 
 # Workspace 10
 
@@ -408,6 +409,19 @@ mode "move ws" {
 }
 
 bindsym $mod+Shift+m mode "move ws"
+
+# Switch display mode
+mode "display mode" {
+    bindsym m exec display_mode mobile
+    bindsym d exec display_mode docked
+    bindsym p exec display_mode presentation
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+
+bindsym XF86Display mode "display mode"
+bindsym $mod+p mode "display mode"
 
 # Start i3bar to display system information
 bar {
