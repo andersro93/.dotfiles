@@ -21,6 +21,9 @@ esac
 # Set the default editor
 export EDITOR=nvim
 
+# Opt out of M$ "telemetry" for dot.net
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+
 # Set arch variable
 export ARCH=amd64
 
