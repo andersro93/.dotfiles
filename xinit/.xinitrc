@@ -8,14 +8,11 @@ if [ -f ~/.Xenvironment_default ]; then
     xrdb -merge ~/.Xenvironment_default
 fi
 
-# Start clipboard helper
-autocutsel -f
-
 # Start compton
 compton --config ~/.config/compton.conf &
 
 # Start Pulseaudio
-start-pulseaudio-x11
+pulseaudio --start
 
 # Start i3
-exec dbus-launch --autolaunch=$(cat /var/lib/dbus/machine-id) i3
+exec i3
