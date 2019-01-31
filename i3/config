@@ -29,7 +29,7 @@ set $launcher_ssh "rofi -show ssh"
 set $browser firefox
 
 ## Terminal emulator
-set $terminal urxvt
+set $terminal terminator
 
 ## File browser
 set $filebrowser terminator -e ranger
