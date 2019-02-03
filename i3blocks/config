@@ -14,7 +14,7 @@
 #
 
 # Location where commands are located
-command=/usr/share/i3blocks/$BLOCK_NAME
+command=$HOME/.dotfiles/i3blocks/blocks/$BLOCK_NAME
 
 # How big the seperator should be in pixels
 separator_block_width=15
@@ -80,7 +80,7 @@ interval=10
 #
 
 [disk]
-label=
+label= 
 instance=/
 interval=60
 
@@ -110,18 +110,10 @@ interval=5
 # In this section, you may configure what information about the battery you want to display 
 #
 
-# First battery
-[battery]
-label=⚡
-instance=0
+[batterybar]
 interval=5
-separator=false
-
-# Second battery
-[battery]
-label=⚡
-instance=1
-interval=5
+markup=pango
+min_width=■■■■■
 
 
 ####################################################################################################
@@ -148,3 +140,4 @@ signal=2
 [time]
 command=date '+%Y-%m-%d %H:%M:%S'
 interval=1
+
