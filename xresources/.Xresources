@@ -69,6 +69,10 @@ URxvt.cursorUnderline:      false
 ! Font to use
 URxvt.font:                 xft:DejaVu Sans Mono:size=10
 
+! Terminal TERM name
+XTerm*termName:             xterm-256color
+URxvt*termName:             xterm-256color
+
 ! Show or hide scrollbar
 URxvt.scrollBar:            false
 
