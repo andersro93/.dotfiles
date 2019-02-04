@@ -40,9 +40,6 @@ Plugin 'airblade/vim-gitgutter'                 " Shows git diff next to line nu
 Plugin 'vim-airline/vim-airline'                " Template engine
 Plugin 'mhartington/oceanic-next'
 
-" Extra
-Plugin 'aurieh/discord.nvim'                    " Discord Prescence plugin
-
 " Vundle specific config
 call vundle#end()
 filetype plugin indent on
