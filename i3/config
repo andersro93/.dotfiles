@@ -29,13 +29,13 @@ set $launcher_ssh "rofi -show ssh"
 set $browser firefox
 
 ## Terminal emulator
-set $terminal terminator
+set $terminal urxvtc
 
 ## File browser
-set $filebrowser terminator -e ranger
+set $filebrowser urxvtc -e ranger
 
 ## Calculator
-set $calculator terminator -e maxima
+set $calculator urxvtc -e maxima
 
 # Minor visual configs
 
