@@ -29,13 +29,13 @@ set $launcher_ssh "rofi -show ssh"
 set $browser firefox
 
 ## Terminal emulator
-set $terminal urxvtc
+set $terminal urxvt
 
 ## File browser
-set $filebrowser urxvtc -e ranger
+set $filebrowser urxvt -e ranger
 
 ## Calculator
-set $calculator urxvtc -e maxima
+set $calculator urxvt -e maxima
 
 # Minor visual configs
 
@@ -79,9 +79,9 @@ bindsym XF86Explorer exec $filebrowser
 bindsym XF86Calculator exec $calculator
 
 # Media keys
-bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +10%;notify-send 'Volume' 'Volume has been increased by 10%' -u low -t 700; pkill -RTMIN+2 i3blocks"
-bindsym XF86AudioLowerVolume exec "pactl set-sink-volume @DEFAULT_SINK@ -10%;notify-send 'Volume' 'Volume has ben decreased by 10%' -u low -t 700; pkill -RTMIN+2 i3blocks"
-bindsym XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle; pkill -RTMIN+2 i3blocks"
+bindsym XF86AudioRaiseVolume exec volume_change up 
+bindsym XF86AudioLowerVolume exec volume_change down
+bindsym XF86AudioMute exec volume_change mute
 bindsym XF86AudioMicMute exec "amixer set Capture toggle"
 
 ## Play button
@@ -330,17 +330,8 @@ client.background       $background
 # Here you may configure what programs that will be run at launch 
 #
 
-# Autorandr - And reload with current X variables
-exec --no-startup-id autorandr -c && xrdb .Xresources-$(autorandr --current)
-
-# Redshift
-exec --no-startup-id redshift -c ~/.config/redshift/config
-
 # Set wallpaper
 exec_always --no-startup-id feh --bg-scale ~/.config/backgrounds/wallpaper
-
-# Authentication agent
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Dunst notification daemon
 exec_always --no-startup-id dunst -config ~/.config/dunst/dunstrc
