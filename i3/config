@@ -82,7 +82,7 @@ bindsym XF86Calculator exec $calculator
 bindsym XF86AudioRaiseVolume exec volume_change up 
 bindsym XF86AudioLowerVolume exec volume_change down
 bindsym XF86AudioMute exec volume_change mute
-bindsym XF86AudioMicMute exec "amixer set Capture toggle"
+bindsym XF86AudioMicMute exec volume_change mic_mute 
 
 ## Play button
 bindsym XF86AudioPlay exec "mpc toggle; pkill -RTMIN+3 i3blocks"
