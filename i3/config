@@ -68,6 +68,8 @@ bindsym $mod+Return exec $terminal
 
 # Launchers
 bindsym $mod+d exec $launcher_programs
+bindsym Menu exec $launcher_programs
+
 bindsym $mod+g exec $launcher_ssh
 
 # Browser
@@ -85,13 +87,13 @@ bindsym XF86AudioMute exec volume_change mute
 bindsym XF86AudioMicMute exec volume_change mic_mute 
 
 ## Play button
-bindsym XF86AudioPlay exec "mpc toggle; pkill -RTMIN+3 i3blocks"
+bindsym XF86AudioPlay exec media toggle
 
 ## Next button
-bindsym XF86AudioNext exec "mpc next ; pkill -RTMIN+3 i3blocks"
+bindsym XF86AudioNext exec media next
 
 ## Prev button
-bindsym XF86AudioPrev exec "mpc prev ; pkill -RTMIN+3 i3blocks"
+bindsym XF86AudioPrev exec media prev
 
 # Brightness keys
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'Brightness' 'Brightness has been adjusted to a level brighter' -u low -t 700"
@@ -413,6 +415,22 @@ mode "display mode" {
 
 bindsym XF86Display mode "display mode"
 bindsym $mod+p mode "display mode"
+
+# Media mode
+mode "media mode" {
+    bindsym space exec media toggle
+    bindsym p exec media toggle
+
+    bindsym Left exec media prev
+    bindsym Right exec media next
+    bindsym l exec media next
+    bindsym h exec media prev
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+
+bindsym $mod+m mode "media mode"
 
 # Start i3bar to display system information
 bar {
