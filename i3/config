@@ -96,8 +96,8 @@ bindsym XF86AudioNext exec media next
 bindsym XF86AudioPrev exec media prev
 
 # Brightness keys
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'Brightness' 'Brightness has been adjusted to a level brighter' -u low -t 700"
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'Brightness' 'Brightness has been adjusted a level darker' -u low -t 700"
+bindsym XF86MonBrightnessUp exec brightness_change up
+bindsym XF86MonBrightnessDown exec brightness_change down 
 
 # Print screen
 bindsym --release Print exec screenshot
@@ -105,7 +105,7 @@ bindsym --release $mod+Print exec screenshot selection
 bindsym --release $mod+Shift+Print exec screenshot window
 
 # Lockscreen
-bindsym $mod+l exec i3lock --image=$wallpaper_lockscreen -e -f -c 000000
+bindsym $mod+l exec i3lock --image=$HOME/.config/backgrounds/wallpaper -e -f -c 000000
 
 # Settings
 bindsym XF86Tools exec "autorandr -c && xrdb -merge .Xenvironment_$(autorandr --current) && restart; notify-send 'Configuration reload' 'The screen configuration has been reloaded' -u low -t 2000"
