@@ -1,5 +1,5 @@
 /** Color settings for Terminal **/
-*.background:               #1c262b
+*.background:               #010101
 *.background-alt:           #2c465b
 *.foreground:               #c2c8d7
 *.foreground-alt:           #a2a8a7
@@ -67,7 +67,8 @@ URxvt.cursorColor:          #657b83
 URxvt.cursorUnderline:      false
 
 ! Font to use
-URxvt.font:                 xft:DejaVu Sans Mono:size=10
+URxvt.xftAntialias:         true
+URxvt.font:                 xft:inconsolata:size=12
 
 ! Terminal TERM name
 XTerm*termName:             xterm-256color
