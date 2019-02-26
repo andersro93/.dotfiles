@@ -42,9 +42,6 @@ set $calculator urxvt -e maxima
 ## Font to use, default is: pango:monospace
 font pango:DejaVu Sans Mono 10, Awesome 10
 
-## Wallpaper - Lockscreen
-set $wallpaper_lockscreen "~/.config/backgrounds/lockscreen.png"
-
 # Titlebar visibility
 for_window [class="^.*"] border pixel 1
 
@@ -105,7 +102,7 @@ bindsym --release $mod+Print exec screenshot selection
 bindsym --release $mod+Shift+Print exec screenshot window
 
 # Lockscreen
-bindsym $mod+l exec i3lock --image=$HOME/.config/backgrounds/wallpaper -e -f -c 000000
+bindsym $mod+l exec i3lock --image=$HOME/.config/backgrounds/lockscreen.png -e -f -c 000000
 
 # Settings
 bindsym XF86Tools exec "autorandr -c && xrdb -merge .Xenvironment_$(autorandr --current) && restart; notify-send 'Configuration reload' 'The screen configuration has been reloaded' -u low -t 2000"
