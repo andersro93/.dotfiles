@@ -38,7 +38,6 @@ Plugin 'airblade/vim-gitgutter'                 " Shows git diff next to line nu
 
 " Template
 Plugin 'vim-airline/vim-airline'                " Template engine
-Plugin 'mhartington/oceanic-next'
 
 " Vundle specific config
 call vundle#end()
@@ -61,12 +60,6 @@ set number
 
 " Enable syntax
 syntax enable
-
-" Set template to use
-colorscheme OceanicNext
-
-" Set the Airline Theme
-let g:airline_theme='oceanicnext'
 
 """ Searching settings
 " Highlight results from search
