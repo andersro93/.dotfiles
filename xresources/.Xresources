@@ -68,7 +68,7 @@ URxvt.cursorUnderline:      false
 
 ! Font to use
 URxvt.xftAntialias:         true
-URxvt.font:                 xft:inconsolata:size=12
+URxvt.font:                 xft:inconsolata:size=14
 
 ! Terminal TERM name
 XTerm*termName:             xterm-256color
