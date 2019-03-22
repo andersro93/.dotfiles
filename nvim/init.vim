@@ -25,13 +25,19 @@ Plugin 'junegunn/fzf'                           " Dependency for fzf related plu
 Plugin 'junegunn/fzf.vim'                       " Search or go to any file
 
 " Coding assitance
+Plugin 'ctrlpvim/ctrlp.vim'                     " Search plugin
 Plugin 'vim-syntastic/syntastic'                " Syntax highlighter
 Plugin 'Shougo/deoplete.nvim'                   " Autocompletion tool
+Plugin 'vim-scripts/indentpython.vim'           " Python autoindent
 Plugin 'VoldikSS/vim-mma'                       " Matematica - intellisense
 Plugin 'lvht/phpcd.vim'                         " PHP - intellisense
 Plugin 'zchee/deoplete-jedi'                    " Python - intellisense
 Plugin 'sebastianmarkow/deoplete-rust'          " Rust - intellisense
 Plugin 'gabrielelana/vim-markdown'              " Markdown - intellisense
+Plugin 'zchee/deoplete-clang'                   " Clang - intellisense
+
+" Prescence plugins
+Plugin 'aurieh/discord.nvim'                    " Discord prescence
 
 " Git helpers
 Plugin 'airblade/vim-gitgutter'                 " Shows git diff next to line numbers
@@ -86,6 +92,8 @@ set wildmode=longest,list
 " Enable intellisense
 let g:deoplete#enable_at_startup = 1
 
+" Ignore certain files in nerdtree
+let NERDTreeIgnore=['\.pyc$', '\~$']
 
 "" Syntastic settings
 " Add info to statusline
@@ -110,10 +118,10 @@ set mouse=v
 """ Hotkeys
 
 " Open config files
-nmap <leader>ev :tabedit ~/.config/init.vim<CR>
-nmap <leader>ei :tabedit ~/.config/i3/config<CR>
-nmap <leader>eb :tabedit ~/.bashrc<CR>
-nmap <leader>ezsh :tabedit ~/.zshrc<CR>
+nmap <leader>ev :tabedit $HOME/.config/nvim/init.vim<CR>
+nmap <leader>ei :tabedit $HOME/.config/i3/config<CR>
+nmap <leader>eb :tabedit $HOME/.bashrc<CR>
+nmap <leader>ezsh :tabedit $HOME/.zshrc<CR>
 
 " Search for anything
 nmap <leader><Space> :Files<CR>
@@ -141,3 +149,4 @@ augroup autosourcin,
 	autocmd!
 	autocmd BufWritePost init.vim source %
 augroup END
+
