@@ -87,18 +87,6 @@ interval=60
 
 ####################################################################################################
 # 
-# Networking Section        
-# 
-# In this section, you may configure what information about the networking you want to display 
-#
-
-[wifi]
-label=
-instance=wlp4s0
-interval=5
-
-####################################################################################################
-# 
 # Battery Section        
 # 
 # In this section, you may configure what information about the battery you want to display 
