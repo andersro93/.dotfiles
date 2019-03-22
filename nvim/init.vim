@@ -29,7 +29,6 @@ Plugin 'ctrlpvim/ctrlp.vim'                     " Search plugin
 Plugin 'vim-syntastic/syntastic'                " Syntax highlighter
 Plugin 'Shougo/deoplete.nvim'                   " Autocompletion tool
 Plugin 'vim-scripts/indentpython.vim'           " Python autoindent
-Plugin 'VoldikSS/vim-mma'                       " Matematica - intellisense
 Plugin 'lvht/phpcd.vim'                         " PHP - intellisense
 Plugin 'zchee/deoplete-jedi'                    " Python - intellisense
 Plugin 'sebastianmarkow/deoplete-rust'          " Rust - intellisense
