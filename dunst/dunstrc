@@ -15,7 +15,7 @@
     #
     # If this option is set to mouse or keyboard, the monitor option
     # will be ignored.
-    follow = mouse
+    follow = none
 
     # The geometry of the window:
     #   [{width}]x{height}[+/-{x}+/-{y}]
@@ -29,7 +29,7 @@
     # the top and down respectively.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "400x20-60+60"
+    geometry = "500x40-80+80"
 
     # Show how many messages are currently hidden (because of geometry).
     indicate_hidden = yes
@@ -54,14 +54,14 @@
     separator_height = 10
 
     # Padding between text and separator.
-    padding = 12
+    padding = 16
 
     # Horizontal padding.
     horizontal_padding = 8
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 3
+    frame_width = 1
 
     # Defines color of the frame around the notification window.
     frame_color = "#FF0000"
@@ -85,7 +85,7 @@
 
     ### Text ###
 
-    font = Fira Code Retina 8
+    font = inconsolata 9
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
@@ -165,7 +165,7 @@
     max_icon_size = 64
 
     # Paths to default icons.
-    icon_path = /usr/share/icons/gnome/32x32/status/:/usr/share/icons/gnome/32x32/devices/
+    icon_path = /home/anders/.dotfiles/icons/flat-remix/Flat-Remix-Red-Dark/status/scalable/:/home/anders/.dotfiles/icons/flat-remix/Flat-Remix-Red-Dark/devices/scalable/
 
     ### History ###
 
@@ -196,7 +196,7 @@
     # Print a notification on startup.
     # This is mainly for error detection, since dbus (re-)starts dunst
     # automatically after a crash.
-    startup_notification = false
+    startup_notification = true
 
     ### Legacy
 
@@ -247,7 +247,7 @@
     # Otherwise the "#" and following would be interpreted as a comment.
     background = "#1c262b"
     foreground = "#c2c8d7"
-    frame_color = "#40a33f"
+    frame_color = "#1c262b"
     timeout = 10
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
@@ -255,8 +255,8 @@
 [urgency_normal]
     background = "#1c262b"
     foreground = "#c2c8d7"
-    frame_color = "#ffea2e"
-    timeout = 10
+    frame_color = "#1e80f0" 
+    Timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
     #icon = /path/to/icon
 

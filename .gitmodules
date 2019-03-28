@@ -4,3 +4,6 @@
 [submodule "nvim/bundle/Vundle.vim"]
 	path = nvim/bundle/Vundle.vim
 	url = https://github.com/VundleVim/Vundle.vim.git
+[submodule "icons/flat-remix"]
+	path = icons/flat-remix
+	url = https://github.com/daniruiz/flat-remix.git
