@@ -149,3 +149,9 @@ augroup autosourcin,
 	autocmd BufWritePost init.vim source %
 augroup END
 
+
+""" Syntax highlighting for files
+" CUDA files
+au BufNewFile,BufRead *.cu set ft=cuda
+au BufNewFile,BufRead *.cuh set ft=cuda
+
