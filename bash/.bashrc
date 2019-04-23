@@ -89,6 +89,9 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
+# Management
+alias mysql_connect='mysql --defaults-file=/etc/mysql/debain.cnf'
+
 ### Terminal colors ###
 black=$(tput -Txterm setaf 0)
 red=$(tput -Txterm setaf 1)
