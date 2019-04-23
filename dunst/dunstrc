@@ -161,11 +161,14 @@
     # Align icons left/right/off
     icon_position = left
 
+    # Scale smaller icons up to this size
+    min_icon_size = 128
+
     # Scale larger icons down to this size, set to 0 to disable
-    max_icon_size = 64
+    max_icon_size = 128
 
     # Paths to default icons.
-    icon_path = /home/anders/.dotfiles/icons/flat-remix/Flat-Remix-Red-Dark/status/scalable/:/home/anders/.dotfiles/icons/flat-remix/Flat-Remix-Red-Dark/devices/scalable/
+    icon_path = /home/anders/.dotfiles/icons/flat-remix/Flat-Remix-Red-Dark/status/scalable/:/home/anders/.dotfiles/icons/flat-remix/Flat-Remix-Red-Dark/devices/scalable/:/home/anders/.dotfiles/icons/flat-remix/Flat-Remix-Red-Dark/actions/scalable/:/home/anders/.dotfiles/icons/flat-remix/Flat-Remix-Red-Dark/apps/scalable/
 
     ### History ###
 
@@ -286,11 +289,6 @@
 # to "".
 # NOTE: It might be helpful to run dunst -print in a terminal in order
 # to find fitting options for rules.
-
-[spotify]
-    appname = *Spotify*
-    new_icon = spotify-client
-    timeout = 2
 
 #[espeak]
 #    summary = "*"
