@@ -70,10 +70,6 @@ URxvt.cursorUnderline:      false
 URxvt.xftAntialias:         true
 URxvt.font:                 xft:inconsolata:size=14
 
-! Terminal TERM name
-!XTerm*termName:             xterm-256color
-!URxvt*termName:             xterm-256color
-
 ! Show or hide scrollbar
 URxvt.scrollBar:            false
 
