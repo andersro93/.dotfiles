@@ -43,6 +43,7 @@ Plugin 'airblade/vim-gitgutter'                 " Shows git diff next to line nu
 
 " Template
 Plugin 'vim-airline/vim-airline'                " Template engine
+Plugin 'ryanoasis/vim-devicons'                 " Icons for files
 
 " Vundle specific config
 call vundle#end()
@@ -60,6 +61,8 @@ set ignorecase
 " Add numbers to each line
 set number
 
+" Encoding
+set encoding=UTF-8
 
 """ Visual settings
 
