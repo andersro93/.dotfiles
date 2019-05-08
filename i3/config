@@ -334,7 +334,6 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id udiskie -t
 
 # Tray programs
-# exec --no-startup-id nextcloud
 exec --no-startup-id "jetbrains-toolbox --minimize"
 
 
