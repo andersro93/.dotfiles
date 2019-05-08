@@ -68,7 +68,7 @@ URxvt.cursorUnderline:      false
 
 ! Font to use
 URxvt.xftAntialias:         true
-URxvt.font:                 xft:inconsolata:size=14
+URxvt.font:                 xft:Inconsolata Nerd Font Mono:size=14
 
 ! Show or hide scrollbar
 URxvt.scrollBar:            false
