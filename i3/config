@@ -40,7 +40,7 @@ set $calculator urxvtc -e maxima
 # Minor visual configs
 
 ## Font to use, default is: pango:monospace
-font pango:DejaVu Sans Mono 12, Awesome 12, Powerline 12
+font pango:Fura Code Retina 12
 
 # Titlebar visibility
 for_window [class="^.*"] border pixel 1
