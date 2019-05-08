@@ -26,13 +26,10 @@ set $launcher_programs "rofi -show run"
 set $launcher_ssh "rofi -show ssh"
 
 ## Browser
-set $browser google-chrome 
+set $browser firefox
 
 ## Terminal emulator
 set $terminal urxvtc
-
-## Email client 
-set $emailclient google-chrome --app="https://gmail.com"
 
 ## File browser
 set $filebrowser urxvtc -e ranger
@@ -77,7 +74,6 @@ bindsym XF86HomePage exec $browser
 bindsym $mod+Shift+t exec $filebrowser
 bindsym XF86Explorer exec $filebrowser
 bindsym XF86Calculator exec $calculator
-bindsym $mod+Shift+g exec $emailclient
 
 # Media keys
 bindsym XF86AudioRaiseVolume exec volume_change up 
@@ -169,7 +165,7 @@ bindsym $mod+c focus child
 #
 
 # Customize the name of each workspace
-set $ws1 "1: "
+set $ws1 "1: "
 set $ws2 "2: "
 set $ws3 "3: "
 set $ws4 "4: "
