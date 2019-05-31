@@ -263,6 +263,7 @@ assign [class="google-chrome"] $ws1
 # Workspace 5
 
 # Workspace 6
+assign [class="Steam"] $ws6
 
 # Workspace 7
 assign [class="Thunderbird"] $ws7
