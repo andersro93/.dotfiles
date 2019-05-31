@@ -1,2 +1,6 @@
 # Ignore plugins for Neovim
 nvim/bundle/*
+
+# Ranger object files in plugins
+ranger/plugins/*.pyo
+
