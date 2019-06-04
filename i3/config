@@ -20,7 +20,7 @@ set $mod Mod4
 # Default applications
 
 ## Launcher - Programs
-set $launcher_programs "rofi -show run"
+set $launcher_programs "rofi -show drun"
 
 ## Launcher - SSH
 set $launcher_ssh "rofi -show ssh"
@@ -40,7 +40,7 @@ set $calculator urxvtc -e maxima
 # Minor visual configs
 
 ## Font to use, default is: pango:monospace
-font pango:Fura Code Retina 12
+font pango:Fura Code Retina 10
 
 # Titlebar visibility
 for_window [class="^.*"] border pixel 1
@@ -365,10 +365,18 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # Resize windows
 mode "resize" {
-	bindsym Left resize shrink width 10 px or 10 ppt
+
+    # Slow resize
+    bindsym Left resize shrink width 10 px or 10 ppt
 	bindsym Down resize grow height 10 px or 10 ppt
 	bindsym Up resize shrink height 10 px or 10 ppt
 	bindsym Right resize grow width 10 px or 10 ppt
+	
+    # Fast resize
+    bindsym Shift+Left resize shrink width 100 px or 100 ppt
+	bindsym Shift+Down resize grow height 100 px or 100 ppt
+	bindsym Shift+Up resize shrink height 100 px or 100 ppt
+	bindsym Shift+Right resize grow width 100 px or 100 ppt
 	
 	bindsym Return mode "default"
 	bindsym Escape mode "default"

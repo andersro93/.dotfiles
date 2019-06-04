@@ -50,7 +50,7 @@ Xft.rgba:                   rgb
 Xft.hintstyle:              hintfull
 
 /** Rofi Configuration **/
-rofi.modi:                  run,window,ssh
+rofi.modi:                  run,window,ssh,drun
 rofi.color-enabled:         true
 rofi.terminal:              urxvt
 rofi.ssh-client:            ssh
@@ -59,6 +59,10 @@ rofi.ssh-command:           urxvt -e {ssh-client} {host}
 
 ! Theme settings
 rofi.theme:                 /usr/share/rofi/themes/android_notification.rasi
+rofi.show-icons:            true
+
+! Cursor settings
+Xcursor.size:               64
 
 /** Urxvt Configuration **/
 ! Cursor settings
