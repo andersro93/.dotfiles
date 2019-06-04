@@ -92,10 +92,16 @@ interval=60
 # In this section, you may configure what information about the battery you want to display 
 #
 
-[batterybar]
-interval=5
-label=
+[batteryplus]
 markup=pango
+instance=BAT0
+interval=10
+
+[batteryplus]
+markup=pango
+instance=BAT1
+interval=10
+
 
 ####################################################################################################
 # 
