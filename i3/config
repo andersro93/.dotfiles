@@ -20,10 +20,7 @@ set $mod Mod4
 # Default applications
 
 ## Launcher - Programs
-set $launcher_programs "rofi -show drun"
-
-## Launcher - SSH
-set $launcher_ssh "rofi -show ssh"
+set $launcher_programs "rofi -combi-modi window,drun,run,ssh -show combi -modi combi"
 
 ## Browser
 set $browser firefox
@@ -63,8 +60,6 @@ bindsym $mod+Return exec $terminal
 # Launchers
 bindsym $mod+d exec $launcher_programs
 bindsym Menu exec $launcher_programs
-
-bindsym $mod+g exec $launcher_ssh
 
 # Browser
 bindsym $mod+Shift+w exec $browser
@@ -172,7 +167,7 @@ set $ws4 "4: "
 set $ws5 "5: "
 set $ws6 "6: "
 set $ws7 "7: "
-set $ws8 "8: "
+set $ws8 "8: "
 set $ws9 "9: "
 set $ws10 "10: "
 
@@ -319,7 +314,7 @@ client.background       $background
 #
 
 # Set wallpaper
-exec_always --no-startup-id feh --bg-scale ~/.config/backgrounds/wallpaper
+exec_always --no-startup-id feh --bg-fill ~/.config/backgrounds/wallpaper
 
 # Dunst notification daemon
 exec_always --no-startup-id dunst -config ~/.config/dunst/dunstrc
@@ -333,6 +328,9 @@ exec --no-startup-id blueman-applet
 
 ## Disk automounter
 exec --no-startup-id udiskie -t
+
+## Clipboard manager
+exec --no-startup-id clipit
 
 # Tray programs
 exec --no-startup-id "jetbrains-toolbox --minimize"
