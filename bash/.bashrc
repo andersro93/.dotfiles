@@ -16,7 +16,7 @@ esac
 ### General settings ###
 
 # Set color mode
-# export TERM=xterm-256color
+export TERM=xterm-256color
 
 # Set the default editor
 export EDITOR=nvim
@@ -90,7 +90,7 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 # Management
-alias mysql_connect='mysql --defaults-file=/etc/mysql/debain.cnf'
+alias mysql_connect='mysql --defaults-file=/etc/mysql/debian.cnf'
 
 ### Terminal colors ###
 black=$(tput -Txterm setaf 0)
@@ -113,12 +113,20 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Git completion
-## Install with this: git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
-if [ -f ~/.dotfiles/bash/bash-git-prompt/gitprompt.sh ]; then
-    GIT_PROMPT_ONLY_IN_REPO=1
-    source ~/.dotfiles/bash/bash-git-prompt/gitprompt.sh
-fi
+
+### Functions ###
+
+# Get the current git branch
+function parse_git_branch() {
+	BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
+	if [ ! "${BRANCH}" == "" ]
+	then
+		echo " ${BRANCH} "
+	else
+		echo ""
+	fi
+}
 
 ### Terminal prompt ###
-export PS1='\n\[$bold\]\[$black\]\[$dk_blue\]\A\[$black\] - \[$green\]\u\[$yellow\]@\[$green\]\h\[$black\] - \[$pink\]\w\[$black\]\[\033[0;33m\] \[\033[00m\]\[$reset\]\n\[$reset\]\$ '
+export PS1="\[$bold\]\[$green\]\u\[$yellow\]@\[$green\]\h \[$bold\]\[$pink\]\w \[$dk_blue\]\[$bold\]\`parse_git_branch\`\[$black\]\[$bold\]\\$\[\e[m\] "
+
