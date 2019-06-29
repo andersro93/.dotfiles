@@ -269,6 +269,8 @@ assign [class="cmus"] $ws8
 
 # Workspace 9
 assign [class="discord"] $ws9
+assign [class="signal"] $ws9
+for_window [class="caprine"] move to workspace $ws9
 for_window [class="slack"] move to workspace $ws9
 
 # Workspace 10
@@ -427,7 +429,6 @@ bindsym $mod+m mode "media mode"
 bar {
 
 	# Which command to run, default i3status
-	# status_command		i3status
 	status_command      i3blocks -c ~/.config/i3blocks/config
 
     # Set the location of the tray
@@ -444,7 +445,8 @@ bar {
 
 	# Color configuration for the bar    
 	colors {
-		# Class
+		
+        # Class
 		background      $background
 		statusline      $foreground
 		separator       $background-alt		
