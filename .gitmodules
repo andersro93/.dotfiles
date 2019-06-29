@@ -1,9 +1,9 @@
-[submodule "bash/bash-git-prompt"]
-	path = bash/bash-git-prompt
-	url = https://github.com/magicmonty/bash-git-prompt.git
 [submodule "nvim/bundle/Vundle.vim"]
 	path = nvim/bundle/Vundle.vim
 	url = https://github.com/VundleVim/Vundle.vim.git
 [submodule "icons/flat-remix"]
 	path = icons/flat-remix
 	url = https://github.com/daniruiz/flat-remix.git
+[submodule "zsh/spaceship-prompt"]
+	path = zsh/spaceship-prompt
+	url = https://github.com/denysdovhan/spaceship-prompt.git

@@ -34,6 +34,7 @@ Plugin 'zchee/deoplete-jedi'                    " Python - intellisense
 Plugin 'sebastianmarkow/deoplete-rust'          " Rust - intellisense
 Plugin 'gabrielelana/vim-markdown'              " Markdown - intellisense
 Plugin 'zchee/deoplete-clang'                   " Clang - intellisense
+Plugin 'chrisbra/Colorizer'                     " Color highlighter
 
 " Prescence plugins
 Plugin 'aurieh/discord.nvim'                    " Discord prescence
@@ -43,7 +44,9 @@ Plugin 'airblade/vim-gitgutter'                 " Shows git diff next to line nu
 
 " Template
 Plugin 'vim-airline/vim-airline'                " Template engine
+Plugin 'vim-airline/vim-airline-themes'         " Templates for template engine
 Plugin 'ryanoasis/vim-devicons'                 " Icons for files
+Plugin 'dracula/vim'                            " Nice development template
 
 " Vundle specific config
 call vundle#end()
@@ -68,6 +71,14 @@ set encoding=UTF-8
 
 " Enable syntax
 syntax enable
+
+" Color template
+colorscheme dracula
+
+" Plugin customization
+let g:airline#extensions#tabline#enabled = 1
+let NERDTreeDirArrowExpandable = ""
+let NERDTreeDirArrowCollapsible = ""
 
 """ Searching settings
 " Highlight results from search
