@@ -1,0 +1,4 @@
+/** Settings on 4k large monitor **/
+Xft.dpi:                    150
+rofi.font:                  Hack 24
+xterm*font:                 *-fixed-*-*-*-12-*

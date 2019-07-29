@@ -8,14 +8,14 @@ if [ -f ~/.Xenvironment_default ]; then
     xrdb -merge ~/.Xenvironment_default
 fi
 
+# Set keyboard type
+setxkbmap no
+
 # Start URxvt daemon
 urxvtd -q -o -f
 
 # Start compton
 compton --config ~/.config/compton.conf &
-
-# Start Pulseaudio
-pulseaudio --start
 
 # Start Gnome Keyring
 dbus-update-activation-environment --systemd DISPLAY
@@ -23,4 +23,4 @@ eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 
 # Start i3
-exec dbus-launch --autolaunch=$(cat /var/lib/dbus/machine-id) i3
+exec i3

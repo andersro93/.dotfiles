@@ -1,46 +1,22 @@
 /** Color settings for Terminal **/
-*.background:               #010101
-*.background-alt:           #2c465b
-*.foreground:               #c2c8d7
-*.foreground-alt:           #a2a8a7
-*.cursorColor:              #b3b8c3
-!
-! Black
-*.color0:                   #000000
-*.color8:                   #777777
-!
-! Red
-*.color1:                   #ee2b2a
-*.color9:                   #dc5c60
-!
-! Green
-*.color2:                   #40a33f
-*.color10:                  #70be71
-!
-! Yellow
-*.color3:                   #ffea2e
-*.color11:                  #fff163
-!
-! Blue
-*.color4:                   #1e80f0
-*.color12:                  #54a4f3
-!
-! Magenta
-*.color5:                   #8800a0
-*.color13:                  #aa4dbc
-!
-! Cyan
-*.color6:                   #16afca
-*.color14:                  #42c7da
-!
-! White
-*.color7:                   #a4a4a4
-*.color15:                  #ffffff
-!
-! Bold, Italic, Underline
-*.colorBD:                  #ffffff
-!*.colorIT:
-!*.colorUL:
+*.foreground: #F8F8F2
+*.background: #282A36
+*.color0:     #000000
+*.color8:     #4D4D4D
+*.color1:     #FF5555
+*.color9:     #FF6E67
+*.color2:     #50FA7B
+*.color10:    #5AF78E
+*.color3:     #F1FA8C
+*.color11:    #F4F99D
+*.color4:     #8c67bf
+*.color12:    #CAA9FA
+*.color5:     #FF79C6
+*.color13:    #FF92D0
+*.color6:     #8BE9FD
+*.color14:    #9AEDFE
+*.color7:     #BFBFBF
+*.color15:    #E6E6E6
 
 
 /** Font configuration **/
@@ -60,9 +36,6 @@ rofi.ssh-command:           urxvt -e {ssh-client} {host}
 ! Theme settings
 rofi.theme:                 /usr/share/rofi/themes/android_notification.rasi
 rofi.show-icons:            true
-
-! Cursor settings
-Xcursor.size:               64
 
 /** Urxvt Configuration **/
 ! Cursor settings
