@@ -41,6 +41,7 @@ Plugin 'aurieh/discord.nvim'                    " Discord prescence
 
 " Git helpers
 Plugin 'airblade/vim-gitgutter'                 " Shows git diff next to line numbers
+Plugin 'rhysd/git-messenger.vim'                " Git history viewer
 
 " Template
 Plugin 'vim-airline/vim-airline'                " Template engine
@@ -77,8 +78,6 @@ colorscheme dracula
 
 " Plugin customization
 let g:airline#extensions#tabline#enabled = 1
-let NERDTreeDirArrowExpandable = ""
-let NERDTreeDirArrowCollapsible = ""
 
 """ Searching settings
 " Highlight results from search
@@ -150,6 +149,8 @@ nnoremap <leader>s :set invspell<CR>
 nmap <leader><left> :tabp<cr>
 nmap <leader><right> :tabn<cr>
 
+" Open Git history
+nmap <leader>gm :GitMessenger<cr>
 
 """ Shell settings
 " Set the shell to use
