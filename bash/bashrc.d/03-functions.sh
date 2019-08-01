@@ -361,6 +361,7 @@ deploy_dotfiles() {
     # i3blocks setup
     mkdir -p ~/.config/i3blocks
     rm ~/.config/i3blocks/config -f
+    rm ~/.config/i3blocks/blocks -f
     ln -s ~/.dotfiles/i3blocks/config ~/.config/i3blocks/config
     ln -s ~/.dotfiles/i3blocks/blocks ~/.config/i3blocks/blocks
 
