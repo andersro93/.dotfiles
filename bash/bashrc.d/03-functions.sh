@@ -392,7 +392,7 @@ deploy_dotfiles() {
     ln -s ~/.dotfiles/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
 
     # Tmux
-    rm ~/.tmux.conf
+    rm ~/.tmux.conf -f
     ln -s ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf
 
     # Xresources
