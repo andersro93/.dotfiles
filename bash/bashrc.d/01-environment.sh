@@ -27,6 +27,10 @@ export ARCH=amd64
 export readonly SESSION_TYPE_LOCAL="local/bash"
 export readonly SESSION_TYPE_SSH="remote/ssh"
 
+# Loot configuration
+export readonly LOOT_REMOTE_SERVER="loot"
+export readonly LOOT_REMOTE_PATH="/mnt/gdrive_public/Loot"
+export readonly LOOT_PUBLIC_URL="https://loot.ros-nett.com"
 
 ## PATHS
 

@@ -51,20 +51,19 @@ loot() {
 
     else
         echo "Error: Invalid mode"
-        exit 1
     fi
 
     # Get the current year
-    readonly YEAR=`date +"%Y"`
+    YEAR=`date +"%Y"`
 
     # Calculate the final path
-    readonly REMOTE_FILE="$YEAR/$RANDOM_FILENAME.$EXTENSION"
+    REMOTE_FILE="$YEAR/$RANDOM_FILENAME.$EXTENSION"
 
     # Make the copying to the S3 Store
-    rsync --chmod=444 "$FILENAME" "$LOOT_REMOTE_SERVER:$LOOT_REMOTE_PATH/$REMOTE_FILE"
+    rsync --chmod=755 "$FILENAME" "$LOOT_REMOTE_SERVER:$LOOT_REMOTE_PATH/$REMOTE_FILE"
 
     # Get the URL
-    readonly URL="$LOOT_PUBLIC_URL/$REMOTE_FILE"
+    URL="$LOOT_PUBLIC_URL/$REMOTE_FILE"
 
     # Delete the tempromary file if raw mode was used
     if [[ $MODE -eq $MODE_RAW ]]; then
