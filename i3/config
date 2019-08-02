@@ -71,10 +71,10 @@ bindsym XF86Explorer exec $filebrowser
 bindsym XF86Calculator exec $calculator
 
 # Media keys
-bindsym XF86AudioRaiseVolume exec volume_change up 
-bindsym XF86AudioLowerVolume exec volume_change down
-bindsym XF86AudioMute exec volume_change mute
-bindsym XF86AudioMicMute exec volume_change mic_mute 
+bindsym XF86AudioRaiseVolume exec volume up 
+bindsym XF86AudioLowerVolume exec volume down
+bindsym XF86AudioMute exec volume mute
+bindsym XF86AudioMicMute exec volume mic_mute 
 
 ## Play button
 bindsym XF86AudioPlay exec media toggle
@@ -86,8 +86,8 @@ bindsym XF86AudioNext exec media next
 bindsym XF86AudioPrev exec media prev
 
 # Brightness keys
-bindsym XF86MonBrightnessUp exec brightness_change up
-bindsym XF86MonBrightnessDown exec brightness_change down 
+bindsym XF86MonBrightnessUp exec brightness up
+bindsym XF86MonBrightnessDown exec brightness down 
 
 # Print screen
 bindsym --release Print exec screenshot

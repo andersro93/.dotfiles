@@ -1,0 +1,29 @@
+#!/bin/bash
+
+## 
+#
+# Title:        Display Mode
+# Description:  The purpose of this file is to provide simple abstractions for changing screenmodes.
+# Author:       github.com/andersro93
+# 
+##
+
+
+# Set the folder where display modes are located
+readonly DISPLAY_MODE_FOLDER="$HOME/.screenlayout"
+
+# Check if the display mode exists
+if [ ! -f "$DISPLAY_MODE_FOLDER/$1.sh" ]; then
+
+    echo "Invalid display mode"
+    notify-send 'Display mode' "Invalid display mode" -u critical
+    exit 1
+
+fi
+
+# Execute display mode change
+eval "$DISPLAY_MODE_FOLDER/$1.sh"
+
+# Send notification and restart notification daemon
+notify-send "Display mode" "Display mode was changed to $1" -i monitor -u low -t 2000
+
