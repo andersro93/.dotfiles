@@ -1,0 +1,45 @@
+#!/bin/bash
+
+## 
+#
+# Title:        Screenshot
+# Description:  The purpose of this file is to provide a simple screenshot mechanism.
+# Author:       github.com/andersro93
+# 
+##
+
+# Some readonly constants
+MODE_SELECTION="selection"
+MODE_WINDOW="window"
+TMP_DIRECTORY="/tmp"
+TMP_FILE="$TMP_DIRECTORY/$(cat /proc/sys/kernel/random/uuid).png"
+
+# Detect what mode to use
+if [[ $# -eq 0 ]]; then
+    
+    # Take screenshot of entire screen(s)
+    maim -m 10 "$TMP_FILE"
+
+elif [[ $1 -eq "$MODE_SELECTION" ]]; then
+
+    # Take screenshot of the selected area
+    maim -s -m 10 "$TMP_FILE"
+
+elif [[ $1 -eq "$MODE_WINDOW" ]]; then
+
+    # Take screenshot of the current window
+    maim -i -m 10 "$TMP_FILE"
+else
+
+    echo "Error: unknown mode was specified"
+fi
+
+# Use the loot script to upload file to remote server
+loot "$TMP_FILE"
+
+# Remove the temp file
+rm "$TMP_FILE"
+
+# Send notification after all is done
+notify-send 'Printscreen' 'Screenshot saved to loot' -u low -t 2000
+

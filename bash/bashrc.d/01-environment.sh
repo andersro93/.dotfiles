@@ -34,6 +34,9 @@ export readonly LOOT_PUBLIC_URL="https://loot.ros-nett.com"
 
 ## PATHS
 
+# Scripts
+export PATH=$PATH:$HOME/.dotfiles/bash/scripts
+
 # Composer
 export PATH=$PATH:$HOME/.config/composer/vendor/bin
 

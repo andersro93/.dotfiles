@@ -1,0 +1,98 @@
+#!/bin/bash
+
+## 
+#
+# Title:        Media
+# Description:  The purpose of this file is to provide simple abstractions for media player interactions.
+# Author:       github.com/andersro93
+# 
+##
+
+
+# Define the different modes
+ACTION_TOGGLE="toggle"
+ACTION_NEXT="next"
+ACTION_PREV="prev"
+ACTION_SEEK_FORWARD="seek_forward"
+ACTION_SEEK_BACKWARD="seek_backward"
+
+# Icons for the actions
+ICON_PLAY="gtk-media-play-ltr"
+ICON_PAUSE="gtk-media-pause"
+ICON_NEXT="gtk-media-next-ltr"
+ICON_PREV="gtk-media-previous-ltr"
+ICON_SEEK_FORWARD="gtk-media-forward-ltr"
+ICON_SEEK_REWIND="gtk-media-rewind-ltr"
+
+# Some configuration variables
+SEEK_STEPS=5
+
+# Notification settings
+TIMEOUT="800"
+URGENCY="low"
+
+# Check if play/pause
+if [ "$1" == "$ACTION_TOGGLE" ]; then
+
+    # Toggle playback
+    playerctl play-pause
+
+    # Wait until the daemon gets to do its job
+    sleep 0.1
+
+    # Determine the new status of the player
+    STATUS=`playerctl status`
+
+    if [ $STATUS == "Playing" ]; then
+
+        # Send a notification
+        notify-send "Media control" "Playback started" --expire-time "$TIMEOUT" --urgency "$URGENCY" --icon "$ICON_PLAY"
+
+    elif [ $STATUS == "Paused" ]; then
+
+        # Send a notification
+        notify-send "Media control" "Playback paused" --expire-time "$TIMEOUT" --urgency "$URGENCY" --icon "$ICON_PAUSE"
+
+    fi
+
+elif [ "$1" == "$ACTION_NEXT" ]; then
+
+    # Next song
+    playerctl next
+
+    # Send a notification
+    notify-send "Media control" "Next song" --expire-time "$TIMEOUT" --urgency "$URGENCY" --icon "$ICON_NEXT"
+
+elif [ "$1" == "$ACTION_PREV" ]; then
+
+    # Previous song
+    playerctl previous
+
+    # Send a notification
+    notify-send "Media control" "Previous song" --expire-time "$TIMEOUT" --urgency "$URGENCY" --icon "$ICON_PREV"  
+
+elif [ "$1" == "$ACTION_SEEK_FORWARD" ]; then
+
+    # Seek forward
+    playerctl position "+$SEEK_STEPS"
+
+    # Send a notification
+    notify-send "Media control" "Seeking forward" --expire-time "$TIMEOUT" --urgency "$URGENCY" --icon "$ICON_SEEK_FORWARD"  
+
+elif [ "$1" == "$ACTION_SEEK_BACKWARD" ]; then
+
+    # Seek backward
+    playerctl position "-$SEEK_STEPS"
+
+    # Send a notification
+    notify-send "Media control" "Seeking backwards" --expire-time "$TIMEOUT" --urgency "$URGENCY" --icon "$ICON_SEEK_REWIND"
+
+else
+
+    echo "Invalid mode"
+
+fi
+
+# Kill i3blocks (forces update)
+pkill -RTMIN+3 i3blocks
+

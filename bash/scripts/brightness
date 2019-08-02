@@ -1,0 +1,39 @@
+#!/bin/bash
+
+## 
+#
+# Title:        Brightness
+# Description:  The purpose of this file is to provide a simple abstraction for managing screen brightness.
+# Author:       github.com/andersro93
+# 
+##
+
+
+# Set some of the configuration variables
+STEP=10
+TIMEOUT=900
+
+# Check if the user wants to increase the brightness
+if [ "$1" == "up" ]; then
+
+    # Try to increase the brightness
+    xbacklight -inc "$STEP"
+
+elif [ "$1" == "down" ]; then
+
+    # Try to decrease the brightness
+    xbacklight -dec "$STEP"
+
+else
+
+    # Invalid action was specified
+    echo "Invalid action: $1"
+    
+fi
+
+# Get the new brightness
+BRIGHTNESS=`xbacklight -get`
+
+# Notify the user
+notify-send 'Brightness' --expire-time $TIMEOUT --urgency low --hint int:value:$BRIGHTNESS -i display 'Brightness changed'
+
