@@ -36,6 +36,9 @@ Plugin 'gabrielelana/vim-markdown'              " Markdown - intellisense
 Plugin 'zchee/deoplete-clang'                   " Clang - intellisense
 Plugin 'chrisbra/Colorizer'                     " Color highlighter
 
+" Preview assistance
+Plugin 'iamcco/markdown-preview.nvim'           " Markdown preview
+
 " Prescence plugins
 Plugin 'aurieh/discord.nvim'                    " Discord prescence
 
@@ -103,6 +106,8 @@ set wildmode=longest,list
 
 " Enable intellisense
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#ignore_sources = get(g:, 'deoplete#ignore_sources', {})
+let g:deoplete#ignore_sources.php = ['omni']
 
 " Ignore certain files in nerdtree
 let NERDTreeIgnore=['\.pyc$', '\~$']
