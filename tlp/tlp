@@ -80,7 +80,7 @@ CPU_BOOST_ON_BAT=1
 # Minimize number of used CPU cores/hyper-threads under light load conditions:
 #   0=disable, 1=enable.
 SCHED_POWERSAVE_ON_AC=0
-SCHED_POWERSAVE_ON_BAT=0
+SCHED_POWERSAVE_ON_BAT=1
 
 # Kernel NMI Watchdog:
 #   0=disable (default, saves power), 1=enable (for kernel debugging only).
