@@ -3,4 +3,4 @@ nvim/bundle/*
 
 # Ranger object files in plugins
 ranger/plugins/*.pyo
-
+ranger/plugins/__pycache__
