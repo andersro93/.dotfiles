@@ -49,6 +49,9 @@ export PATH=$PATH:$HOME/.yarn/bin
 # Snap path
 export PATH=$PATH:/snap/bin
 
+# Dotnet path
+export PATH=$PATH:$HOME/.dotnet
+
 # Home binaries
 export PATH=$PATH:$HOME/.programs
 export PATH=$PATH:$HOME/bin

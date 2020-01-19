@@ -15,7 +15,7 @@ setxkbmap no
 urxvtd -q -o -f
 
 # Start compton
-compton --config ~/.config/compton.conf &
+#compton --config ~/.config/compton.conf &
 
 # Start Gnome Keyring
 dbus-update-activation-environment --systemd DISPLAY

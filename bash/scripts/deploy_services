@@ -1,0 +1,15 @@
+#!/bin/bash
+
+##
+#
+# Title:        deploy_services
+# Description:  The purpose of this file is to provide an easy way of deploying all the services provided in this repository.
+# Author:       github.com/andersro93
+#
+##
+
+# GDrive using Rclone
+mkdir -p ~/GDrive
+ln -s ~/.dotfiles/services/user/gdrive.service ~/.config/systemd/user/gdrive.service
+systemctl --user enable gdrive.service
+

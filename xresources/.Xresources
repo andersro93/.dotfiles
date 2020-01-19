@@ -28,10 +28,10 @@ Xft.hintstyle:              hintfull
 /** Rofi Configuration **/
 rofi.modi:                  run,window,ssh,drun
 rofi.color-enabled:         true
-rofi.terminal:              urxvt
+rofi.terminal:              alacritty
 rofi.ssh-client:            ssh
-rofi.run-shell-command:     urxvt -e '{cmd}'
-rofi.ssh-command:           urxvt -e {ssh-client} {host}
+rofi.run-shell-command:     alacritty -e '{cmd}'
+rofi.ssh-command:           alacritty -e {ssh-client} {host}
 
 ! Theme settings
 rofi.theme:                 /usr/share/rofi/themes/android_notification.rasi
@@ -67,7 +67,7 @@ URxvt.url-launcher:         /usr/bin/xdg-open
 URxvt.matcher.button:       1
 
 ! Keymap
-URxvt.keysym.Home:          \033[1~
-URxvt.keysym.End:           \033[4~
-URxvt.keysym.KP_Home:       \033[1~
-URxvt.keysym.KP_End:        \033[4~
+!URxvt.keysym.Home:          \033[1~
+!URxvt.keysym.End:           \033[4~
+!URxvt.keysym.KP_Home:       \033[1~
+!URxvt.keysym.KP_End:        \033[4~

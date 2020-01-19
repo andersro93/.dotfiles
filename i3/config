@@ -26,13 +26,13 @@ set $launcher_programs "rofi -combi-modi window,drun,run,ssh -show combi -modi c
 set $browser firefox
 
 ## Terminal emulator
-set $terminal urxvtc
+set $terminal alacritty
 
 ## File browser
-set $filebrowser urxvtc -e ranger
+set $filebrowser alacritty -e ranger
 
 ## Calculator
-set $calculator urxvtc -e maxima
+set $calculator alacritty -e maxima
 
 # Minor visual configs
 
