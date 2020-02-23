@@ -52,12 +52,7 @@ separator=false
 # The current average load
 [load_average]
 interval=5
-separator=false
-
-# The temperature of the CPU
-[temperature]
-command=sensors -u coretemp-isa-0000 | grep temp1_input | cut -c 15-17 | xargs printf '%d°'
-interval=10
+separator=true
 
 
 ####################################################################################################
@@ -92,16 +87,10 @@ interval=60
 # In this section, you may configure what information about the battery you want to display 
 #
 
-[batteryplus]
+[batterybar]
+interval=5
 markup=pango
-instance=BAT0
-interval=10
-
-[batteryplus]
-markup=pango
-instance=BAT1
-interval=10
-
+min_width=bat: ■■■■■
 
 ####################################################################################################
 # 

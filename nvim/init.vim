@@ -27,13 +27,7 @@ Plugin 'junegunn/fzf.vim'                       " Search or go to any file
 " Coding assitance
 Plugin 'ctrlpvim/ctrlp.vim'                     " Search plugin
 Plugin 'vim-syntastic/syntastic'                " Syntax highlighter
-Plugin 'Shougo/deoplete.nvim'                   " Autocompletion tool
-Plugin 'vim-scripts/indentpython.vim'           " Python autoindent
-Plugin 'lvht/phpcd.vim'                         " PHP - intellisense
-Plugin 'zchee/deoplete-jedi'                    " Python - intellisense
-Plugin 'sebastianmarkow/deoplete-rust'          " Rust - intellisense
-Plugin 'gabrielelana/vim-markdown'              " Markdown - intellisense
-Plugin 'zchee/deoplete-clang'                   " Clang - intellisense
+Plugin 'neoclide/coc.nvim'                      " Autocomplete tool
 Plugin 'chrisbra/Colorizer'                     " Color highlighter
 
 " Preview assistance
@@ -73,6 +67,9 @@ set encoding=UTF-8
 
 """ Visual settings
 
+" Enable color support
+set termguicolors
+
 " Enable syntax
 syntax enable
 
@@ -104,11 +101,6 @@ set autoindent
 " Add basic completion
 set wildmode=longest,list
 
-" Enable intellisense
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#ignore_sources = get(g:, 'deoplete#ignore_sources', {})
-let g:deoplete#ignore_sources.php = ['omni']
-
 " Ignore certain files in nerdtree
 let NERDTreeIgnore=['\.pyc$', '\~$']
 
@@ -124,8 +116,6 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
-"" Syntax highlighter for languages
-let g:syntastic_python_pylint_exe = 'python3 -m pylint3'
 
 """ Mouse settings
 " Middle-click to paste
