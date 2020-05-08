@@ -29,6 +29,8 @@ Plug 'ctrlpvim/ctrlp.vim'                       " Search plugin
 Plug 'chrisbra/Colorizer'                       " Color highlighter
 Plug 'ianks/vim-tsx'                            " TSX Highlighter
 Plug 'leafgarland/typescript-vim'               " TSX Highlighter
+Plug 'scrooloose/syntastic'                     " Syntax Highlighter
+Plug 'sheerun/vim-polyglot'                     " Syntax Highlighter
 
 " Preview assistance
 Plug 'iamcco/markdown-preview.nvim'             " Markdown preview
@@ -108,7 +110,7 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 " Global COC plugins
-let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier']
+let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-omnisharp', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier']
 
 
 """ Mouse settings
@@ -141,7 +143,7 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
 
-inoremap <silent><expr> <Tab>
+inoremap <silent><expr> <c-space>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
