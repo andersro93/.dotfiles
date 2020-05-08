@@ -278,6 +278,17 @@ for_window [class="slack"] move to workspace $ws9
 
 ####################################################################################################
 # 
+# Window configuration
+# 
+# This section configures the window configuration for i3
+#
+
+# Always show Teams notifications in floating mode
+for_window [class="Microsoft Teams - Preview"] floating enable
+
+
+####################################################################################################
+# 
 # Color configuration
 # 
 # This section configures the color settings for i3
