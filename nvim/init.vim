@@ -10,46 +10,43 @@ set nocompatible
 let mapleader = ","
 
 """ Plugins
-" Vundle specific config
-filetype off
-set rtp+=~/.config/nvim/bundle/Vundle.vim
-call vundle#begin('~/.config/nvim/bundle')
+" Ensure that plug is installed
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-"" Plugins for vundle to manage
-" Vundle itself, mandatory
-Plugin 'VundleVim/Vundle.vim'
-
+call plug#begin()
 " Navigation
-Plugin 'scrooloose/nerdtree'                    " Filesystem sidebar
-Plugin 'junegunn/fzf'                           " Dependency for fzf related plugins
-Plugin 'junegunn/fzf.vim'                       " Search or go to any file
+Plug 'scrooloose/nerdtree'                      " Filesystem sidebar
+Plug 'junegunn/fzf'                             " Dependency for fzf related plugins
+Plug 'junegunn/fzf.vim'                         " Search or go to any file
 
 " Coding assitance
-Plugin 'ctrlpvim/ctrlp.vim'                     " Search plugin
-Plugin 'vim-syntastic/syntastic'                " Syntax highlighter
-Plugin 'neoclide/coc.nvim'                      " Autocomplete tool
-Plugin 'chrisbra/Colorizer'                     " Color highlighter
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " Intellisense tool
+Plug 'ctrlpvim/ctrlp.vim'                       " Search plugin
+Plug 'chrisbra/Colorizer'                       " Color highlighter
+Plug 'ianks/vim-tsx'                            " TSX Highlighter
+Plug 'leafgarland/typescript-vim'               " TSX Highlighter
 
 " Preview assistance
-Plugin 'iamcco/markdown-preview.nvim'           " Markdown preview
+Plug 'iamcco/markdown-preview.nvim'             " Markdown preview
 
 " Prescence plugins
-Plugin 'aurieh/discord.nvim'                    " Discord prescence
+Plug 'aurieh/discord.nvim'                      " Discord prescence
 
 " Git helpers
-Plugin 'airblade/vim-gitgutter'                 " Shows git diff next to line numbers
-Plugin 'rhysd/git-messenger.vim'                " Git history viewer
+Plug 'airblade/vim-gitgutter'                   " Shows git diff next to line numbers
+Plug 'rhysd/git-messenger.vim'                  " Git history viewer
 
 " Template
-Plugin 'vim-airline/vim-airline'                " Template engine
-Plugin 'vim-airline/vim-airline-themes'         " Templates for template engine
-Plugin 'ryanoasis/vim-devicons'                 " Icons for files
-Plugin 'dracula/vim'                            " Nice development template
+Plug 'vim-airline/vim-airline'                  " Template engine
+Plug 'vim-airline/vim-airline-themes'           " Templates for template engine
+Plug 'ryanoasis/vim-devicons'                   " Icons for files
+Plug 'dracula/vim', { 'as': 'dracula' }         " Dracula theme
 
-" Vundle specific config
-call vundle#end()
-filetype plugin indent on
-
+call plug#end()
 
 """ Basic configuration
 
@@ -110,11 +107,8 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-"" When to check for syntax errors
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
+" Global COC plugins
+let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier']
 
 
 """ Mouse settings
@@ -133,6 +127,35 @@ nmap <leader>ezsh :tabedit $HOME/.zshrc<CR>
 " Search for anything
 nmap <leader><Space> :Files<CR>
 
+" Code helper
+inoremap <silent><expr> <c-space> coc#refresh()<CR>
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+" Tab completion
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+
+" Show documentation
+nnoremap <silent> <c-p> :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 " Open filetree
 nmap <leader>1 :NERDTreeToggle<cr>
@@ -161,6 +184,10 @@ augroup END
 
 
 """ Syntax highlighting for files
+" Typescript files
+au BufNewFile,BufRead *.ts setlocal filetype=typescript
+au BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
+
 " CUDA files
 au BufNewFile,BufRead *.cu set ft=cuda
 au BufNewFile,BufRead *.cuh set ft=cuda
