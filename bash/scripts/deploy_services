@@ -8,6 +8,9 @@
 #
 ##
 
+# Create user services folder
+mkdir -p ~/.config/systemd/user/
+
 # GDrive using Rclone
 mkdir -p ~/GDrive
 ln -s ~/.dotfiles/services/user/gdrive.service ~/.config/systemd/user/gdrive.service

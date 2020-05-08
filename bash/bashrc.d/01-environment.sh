@@ -51,6 +51,7 @@ export PATH=$PATH:/snap/bin
 
 # Dotnet path
 export PATH=$PATH:$HOME/.dotnet
+export PATH=$PATH:$HOME/.dotnet/tools
 
 # Home binaries
 export PATH=$PATH:$HOME/.programs

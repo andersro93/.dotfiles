@@ -53,14 +53,14 @@ fi
 # Get the current year
 YEAR=`date +"%Y"`
 
-# Calculate the final path
+# Calculate remote filename
 REMOTE_FILE="$YEAR/$RANDOM_FILENAME.$EXTENSION"
 
-# Make the copying to the S3 Store
-rsync --chmod=755 "$FILENAME" "$LOOT_REMOTE_SERVER:$LOOT_REMOTE_PATH/$REMOTE_FILE"
+# Make the copying to the destination with Rclone
+rclone copy "$FILENAME" "loot:$REMOTE_FILE"
 
 # Get the URL
-URL="$LOOT_PUBLIC_URL/$REMOTE_FILE"
+URL=`rclone link loot:$REMOTE_FILE`
 
 # Delete the tempromary file if raw mode was used
 if [[ $MODE -eq $MODE_RAW ]]; then
@@ -68,7 +68,7 @@ if [[ $MODE -eq $MODE_RAW ]]; then
 fi
 
 # Put the URL on the clipboard if xclip is installed
-echo "$URL" | xclip
+echo "$URL" | xclip -selection clipboard -i
 
 # Print the URL
 echo "$URL"
