@@ -1,0 +1,4 @@
+#!/bin/bash
+
+eval "~/.screenlayout/"$(ls ~/.screenlayout | rofi -dmenu -p "Select screenmode");
+

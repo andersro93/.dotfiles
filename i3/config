@@ -89,10 +89,13 @@ bindsym XF86AudioPrev exec media prev
 bindsym XF86MonBrightnessUp exec brightness up
 bindsym XF86MonBrightnessDown exec brightness down 
 
+# Display mode
+bindsym XF86Display exec screenmode
+bindsym $mod+p exec screenmode
+
 # Print screen
-bindsym --release Print exec screenshot
-bindsym --release $mod+Print exec screenshot selection
-bindsym --release $mod+Shift+Print exec screenshot window
+bindsym --release Print exec flameshot full -c
+bindsym --release $mod+Print exec flameshot gui 
 
 # Lockscreen
 bindsym $mod+l exec i3lock --image=$HOME/.config/backgrounds/lockscreen.png -e -f -c 000000
@@ -406,19 +409,6 @@ mode "move ws" {
 }
 
 bindsym $mod+Shift+m mode "move ws"
-
-# Switch display mode
-mode "display mode" {
-    bindsym m exec display_mode mobile
-    bindsym d exec display_mode docked
-    bindsym p exec display_mode presentation
-
-    bindsym Escape mode "default"
-    bindsym Return mode "default"
-}
-
-bindsym XF86Display mode "display mode"
-bindsym $mod+p mode "display mode"
 
 # Media mode
 mode "media mode" {
