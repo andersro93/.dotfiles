@@ -337,19 +337,19 @@ exec_always --no-startup-id dunst -config ~/.config/dunst/dunstrc
 
 # Applets
 ## Network Manager Applet
-exec --no-startup-id nm-applet
+exec_always --no-startup-id nm-applet
 
 ## Bluetooth manager
-exec --no-startup-id blueman-applet
+exec_always --no-startup-id blueman-applet
 
 ## Disk automounter
-exec --no-startup-id udiskie -t
+exec_always --no-startup-id udiskie -t
 
 ## Clipboard manager
-exec --no-startup-id clipit
+exec_always --no-startup-id clipit
 
 # Tray programs
-exec --no-startup-id "jetbrains-toolbox --minimize"
+exec_always --no-startup-id "jetbrains-toolbox --minimize"
 
 
 ####################################################################################################
