@@ -110,7 +110,7 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 " Global COC plugins
-let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-omnisharp', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier']
+let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-omnisharp', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier', 'coc-eslint' ]
 
 
 """ Mouse settings
