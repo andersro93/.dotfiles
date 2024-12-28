@@ -28,10 +28,6 @@ mkdir -p ~/.config/dunst
 rm ~/.config/dunst/dunstrc -f
 ln -s ~/.dotfiles/dunst/dunstrc ~/.config/dunst/dunstrc
 
-# Redshift
-rm ~/.config/redshift -Rf
-ln -s ~/.dotfiles/redshift ~/.config/redshift
-
 # Alacritty
 mkdir -p ~/.config/alacritty
 rm ~/.config/alacritty/alacritty.yml -Rf
@@ -45,10 +41,6 @@ ln -s ~/.dotfiles/nvim ~/.config/nvim
 rm ~/.bashrc ~/.bash_profile -f
 ln -s ~/.dotfiles/bash/.bashrc ~/.bashrc
 ln -s ~/.dotfiles/bash/.bash_profile ~/.bash_profile
-
-# Compton
-rm ~/.config/compton.conf -f
-ln -s ~/.dotfiles/compton/compton.conf ~/.config/compton.conf
 
 # GTK 3.0
 mkdir -p ~/.config/gtk-3.0
@@ -66,4 +58,3 @@ ln -s ~/.dotfiles/xresources/.Xresources ~/.Xresources
 # Xinit
 rm ~/.xinitrc -f
 ln -s ~/.dotfiles/xinit/.xinitrc ~/.xinitrc
-
