@@ -28,6 +28,11 @@ mkdir -p ~/.config/dunst
 rm ~/.config/dunst/dunstrc -f
 ln -s ~/.dotfiles/dunst/dunstrc ~/.config/dunst/dunstrc
 
+# Ghostty
+mkdir -p ~/.config/ghostty
+rm ~/.config/ghostty/config
+ln -s ~/.dotfiles/ghostty/config ~/.config/ghostty/config
+
 # Alacritty
 mkdir -p ~/.config/alacritty
 rm ~/.config/alacritty/alacritty.yml -Rf
