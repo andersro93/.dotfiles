@@ -15,5 +15,10 @@ case $- in
 esac
 
 # Source all configuration files
-for file in ~/.dotfiles/bash/bashrc.d/*.sh; do source $file; done
+for file in ~/.config/bashrc.d/*.sh; do source "$file"; done
+
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/anders/.lmstudio/bin"
+# End of LM Studio CLI section
 

@@ -32,6 +32,7 @@ ln -s ~/.dotfiles/dunst/dunstrc ~/.config/dunst/dunstrc
 mkdir -p ~/.config/ghostty
 rm ~/.config/ghostty/config
 ln -s ~/.dotfiles/ghostty/config ~/.config/ghostty/config
+ln -s ~/.dotfiles/ghostty/themes ~/.config/ghostty/themes
 
 # Alacritty
 mkdir -p ~/.config/alacritty

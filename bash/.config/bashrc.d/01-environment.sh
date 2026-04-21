@@ -19,8 +19,8 @@ export EDITOR=nvim
 # Opt out of M$ "telemetry" for dot.net scripts
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
-# Set arch variable
-export ARCH=amd64
+# Set arch variable (dynamic, works on Apple Silicon and ARM servers)
+export ARCH=$(uname -m)
 
 
 ## Configurations
@@ -33,9 +33,6 @@ export readonly LOOT_REMOTE_PATH="/mnt/gdrive_public/Loot"
 export readonly LOOT_PUBLIC_URL="https://loot.ros-nett.com"
 
 ## PATHS
-
-# Scripts
-export PATH=$PATH:$HOME/.dotfiles/bash/scripts
 
 # Composer
 export PATH=$PATH:$HOME/.config/composer/vendor/bin

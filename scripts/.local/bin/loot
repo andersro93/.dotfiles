@@ -23,7 +23,11 @@ else
 fi
 
 # Retrieve an UUID that we can use for filename
-RANDOM_FILENAME="$(cat /proc/sys/kernel/random/uuid)"
+if command -v uuidgen &>/dev/null; then
+    RANDOM_FILENAME="$(uuidgen | tr '[:upper:]' '[:lower:]')"
+else
+    RANDOM_FILENAME="$(cat /proc/sys/kernel/random/uuid)"
+fi
 
 # Determine which transfer mode to use
 if [[ $MODE = "$MODE_FILE" ]]; then
@@ -63,12 +67,18 @@ rclone copy "$FILENAME" "loot:$REMOTE_FILE"
 URL=`rclone link loot:$REMOTE_FILE`
 
 # Delete the tempromary file if raw mode was used
-if [[ $MODE -eq $MODE_RAW ]]; then
-    rm FILENAME 2> /dev/null 
+if [[ $MODE == "$MODE_RAW" ]]; then
+    rm "$FILENAME" 2> /dev/null
 fi
 
-# Put the URL on the clipboard if xclip is installed
-echo "$URL" | xclip -selection clipboard -i
+# Put the URL on the clipboard if available
+if command -v pbcopy &>/dev/null; then
+    echo "$URL" | pbcopy
+elif command -v xclip &>/dev/null; then
+    echo "$URL" | xclip -selection clipboard -i
+elif command -v xsel &>/dev/null; then
+    echo "$URL" | xsel --clipboard --input
+fi
 
 # Print the URL
 echo "$URL"

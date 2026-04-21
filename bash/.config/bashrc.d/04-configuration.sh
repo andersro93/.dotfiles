@@ -33,10 +33,10 @@ fi
 if [[ "$SESSION_TYPE" == "$SESSION_TYPE_SSH" ]]; then
 
     # Check if TMUX is not running and installed on the machine
-    if [ -z "$TMUX" ] && [ -x "/usr/bin/tmux" ]; then
+    if [ -z "$TMUX" ] && command -v tmux &>/dev/null; then
 
         # Create or attach to the main tmux session
-        /usr/bin/tmux new-session -A -s main
+        tmux new-session -A -s main
     fi
 fi
 
